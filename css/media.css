@@ -13,10 +13,12 @@
 	}
 
 	#navbar_content > .navbar-nav > .nav-item{
-	  padding: 0px;
+	  padding-top: 10px;
+		padding-bottom: 10px;
 	}
 
 	#navbar_content > .navbar-nav > .nav-item > .nav-link{
+			padding: 0px;
   	  font-size: 13px;
   	}
 
@@ -45,6 +47,12 @@
 	  bottom: 40px;
 	}
 
+	.hvr-underline-from-center:before{
+		display: none;
+	}
+
+
+
 }
 
 /* Small Devices, Tablets */
@@ -62,6 +70,10 @@
 	#navbar_content > .navbar-nav > .nav-item > .nav-link{
   		font-size: 16px;
   	}
+	
+	#lang_code, .fa-sort-desc{
+		display: none;
+	}
 
 	#lang_selector{
 	    display: inline-block;

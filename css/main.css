@@ -44,8 +44,13 @@ section, .main_head{
   position: relative;
 }
 
-svg path{
+.logo_nav path{
   fill: #0C090A;
+}
+
+.logo_center path{
+  fill: #FFFFFF;
+  opacity: 0.50;
 }
 
 .logo_wrapper{
@@ -69,8 +74,8 @@ svg path{
 }
 
 .logo_centered svg{
-  width: 280px;
-  height: 280px;
+  width: 300px;
+  height: 300px;
 }
 
 .navbar{
@@ -85,13 +90,14 @@ svg path{
   top: 10px;
 }
 
-.main_nav_small{
+.main_nav_small, .main_nav_mob{
   top: 0px;
-  background-color: rgba(255, 216, 1, 0.50);
+  background-color: rgba(135, 175, 199, 0.70);
 }
 
 .navbar-brand svg{
   height: 40px;
+
 }
 
 .navbar-nav{
@@ -123,7 +129,8 @@ svg path{
   padding-bottom: 2px;
   text-transform: uppercase;
   white-space: nowrap;
-  color: black;
+  color: #FFFFFF;
+  text-shadow: 2px 2px 4px #34282C;
 }
 
 .dropdown-menu {
@@ -179,7 +186,7 @@ svg path{
     left: 50%;
     right: 50%;
     bottom: 0;
-    background: black;
+    background: #848482;
     height: 1px;
     -webkit-transition-property: left, right;
     transition-property: left, right;
@@ -272,11 +279,11 @@ svg path{
 }
 
 .facebook{
-  bottom: 150px;
+  bottom: 130px;
 }
 
 .ig{
-  bottom: 100px;
+  bottom: 80px;
 }
 
 .button_wrap{
@@ -337,8 +344,8 @@ svg path{
 .button_aRight span{
   display: none;
   padding-right: 10px;
-  color: #f7f7f7;
-  font-weight: 300;
+  color: #4C4646;
+  font-weight: 400;
   font-size: 1.0rem;
 }
 
@@ -393,7 +400,7 @@ svg path{
   position: absolute;
   right: 0px;
   cursor: pointer;
-  bottom: 100px;
+  bottom: 80px;
 }
 
 .button_wrap_callback{
@@ -457,7 +464,7 @@ svg path{
   -webkit-border-radius: 15px;
   border-radius: 15px;
   border: 1px solid #41A317;
-  color: #41A317;
+  color: #4C4646;
 }
 
 /* КОНЕЦ КНОПКИ CALLBACK */

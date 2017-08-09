@@ -15,28 +15,25 @@ $(document).ready(function() {
 		heightDetect();
 	});
 
-	
 	/* Подключение плагина Parallax для header */
-		$('.main_head').parallax({imageSrc: "img/test1.jpg"});
+		$('.main_head').parallax({imageSrc: "img/snapseed.jpg"});
 	
-
-    /* Удаляет анимацию при hover на меню */
+	/* Удаляет анимацию при hover на меню в моб. версии */
     $(window).resize(function(){
 	 if($(window).width()<768){
 	    $(".nav-link").removeClass("hvr-underline-from-center");
 	 }
 	});
 
-
     /* Анимация hamburger в моб. версии */
-    $(".navbar-toggler").click(function(){
+   $(".navbar-toggler").click(function(){
+    $(".main_nav").toggleClass("main_nav_mob");
 	  if($(this).hasClass("collapsed")){
 	    $(this).removeClass("collapsed");
 	  }else{
 	    $(this).addClass("collapsed");
 	  }
 	 })
-
    
    /* Анимация кнопок соц. сетей */
 	$(".slidebttn_fb").hover(
@@ -77,11 +74,11 @@ $(document).ready(function() {
 	/* Активация Tooltip Bootstrap (для кнопки callback)*/
     $('[data-toggle="tooltip"]').tooltip();    
 
-
     /* Анимация main_nav */
     $(window).on("scroll", function(){
     	if($(this).scrollTop()>100){
     		$(".navbar").removeClass("main.nav").addClass("main_nav_small");
+    		$(".logo_center")
     	}else{
     		$(".navbar").addClass("main.nav").removeClass("main_nav_small");
     	}
