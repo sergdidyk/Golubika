@@ -74,13 +74,15 @@ $(document).ready(function() {
 	/* Активация Tooltip Bootstrap (для кнопки callback)*/
     $('[data-toggle="tooltip"]').tooltip();    
 
-    /* Анимация main_nav */
+    /* Анимация main_nav и центрального лого*/
     $(window).on("scroll", function(){
     	if($(this).scrollTop()>100){
     		$(".navbar").removeClass("main.nav").addClass("main_nav_small");
-    		$(".logo_center")
+    	}else if($(this).scrollTop()>5){
+    		$(".logo_center path").css("opacity", 0.30);
     	}else{
     		$(".navbar").addClass("main.nav").removeClass("main_nav_small");
+    		$(".logo_center path").css("opacity", 0);
     	}
     });
 
@@ -110,12 +112,11 @@ $(document).ready(function() {
     });
 
 	$(".dropdown").mouseleave(function(){
-    	
+			$(".dropdown-menu").addClass("zoomOut");
     	if($(".dropdown-menu").hasClass("zoomIn")){
     		$(".dropdown-menu").removeClass("zoomIn");
     	}
-    	$(".dropdown-menu").addClass("zoomOut");
-    });
+  });
     
 
 });

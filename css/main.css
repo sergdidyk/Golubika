@@ -50,7 +50,8 @@ section, .main_head{
 
 .logo_center path{
   fill: #FFFFFF;
-  opacity: 0.50;
+  opacity: 0;
+  transition: all 0.3s linear;
 }
 
 .logo_wrapper{
@@ -466,6 +467,49 @@ section, .main_head{
   border: 1px solid #41A317;
   color: #4C4646;
 }
-
 /* КОНЕЦ КНОПКИ CALLBACK */
+
+
+/* СТИЛИ КАТАЛОГА */
+.cat_headline{
+  height: 120px;
+  background-color: grey;
+  position: relative;
+  /* IE10+ */ 
+background-image: -ms-linear-gradient(right, #FFFFFF 0%, #3366FF 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-linear-gradient(right, #FFFFFF 0%, #3366FF 100%);
+
+/* Opera */ 
+background-image: -o-linear-gradient(right, #FFFFFF 0%, #3366FF 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #FFFFFF), color-stop(100, #3366FF));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(right, #FFFFFF 0%, #3366FF 100%);
+
+/* W3C Markup */ 
+background-image: linear-gradient(to left, #FFFFFF 0%, #3366FF 100%);
+}
+
+.cat_headline_inside{
+  position: absolute;
+  bottom: 0px;
+}
+
+.display-4{
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: 0px 30px 0px 30px;
+  margin: 0px;
+  color: white;
+  line-height: 0.70;
+  letter-spacing: 3px;
+}
+
+
+
+/* КОНЕЦ СТИЛЕЙ КАТАЛОГА */
 

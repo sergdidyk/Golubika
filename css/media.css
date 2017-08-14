@@ -22,8 +22,8 @@
   	  font-size: 13px;
   	}
 
-	.fa-globe{
-	  font-size: 20px;
+	.dropdown-item{
+	  font-size: 0.90rem;
 	}
 
 	.navbar-brand{
@@ -50,8 +50,6 @@
 	.hvr-underline-from-center:before{
 		display: none;
 	}
-
-
 
 }
 
