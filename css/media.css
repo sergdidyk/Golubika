@@ -51,6 +51,15 @@
 		display: none;
 	}
 
+	.cat_headline{
+		height: 100px;
+	}
+
+	.display-4{
+		font-size: 3.0rem;
+	}
+
+
 }
 
 /* Small Devices, Tablets */
@@ -93,6 +102,11 @@
 	#catalog_list{
 		display: none;
 	}
+
+ .display-4{
+ 		font-size: 2.20rem;
+ }
+
 }
 
 /* Extra Small Devices, Phones */
@@ -101,8 +115,14 @@
   		font-size: 15px;
   	}
 
-	
-	
+		.cat_headline{
+			height: 80px;
+		}
+
+		.display-4{
+ 			font-size: 1.50rem;
+ 		}
+
 }
 
 /* Custom, iPhone Retina */

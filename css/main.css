@@ -365,7 +365,12 @@ section, .main_head{
 }
 
 .button_c_fb{
-  background-color:#3b5998;
+  background: rgb(59, 89, 152);
+  background: -moz-linear-gradient(142deg, rgb(59, 89, 152) 0%, rgb(139, 157, 195) 100%);
+  background: -webkit-linear-gradient(142deg, rgb(59, 89, 152) 0%, rgb(139, 157, 195) 100%);
+  background: -o-linear-gradient(142deg, rgb(59, 89, 152) 0%, rgb(139, 157, 195) 100%);
+  background: -ms-linear-gradient(142deg, rgb(59, 89, 152) 0%, rgb(139, 157, 195) 100%);
+  background: linear-gradient(232deg, rgb(59, 89, 152) 0%, rgb(139, 157, 195) 100%);
   color: #f7f7f7;
   text-transform: uppercase;
 }
@@ -473,30 +478,24 @@ section, .main_head{
 /* СТИЛИ КАТАЛОГА */
 .cat_headline{
   height: 120px;
-  background-color: grey;
   position: relative;
   /* IE10+ */ 
-background-image: -ms-linear-gradient(right, #FFFFFF 0%, #3366FF 100%);
-
-/* Mozilla Firefox */ 
-background-image: -moz-linear-gradient(right, #FFFFFF 0%, #3366FF 100%);
-
-/* Opera */ 
-background-image: -o-linear-gradient(right, #FFFFFF 0%, #3366FF 100%);
-
-/* Webkit (Safari/Chrome 10) */ 
-background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #FFFFFF), color-stop(100, #3366FF));
-
-/* Webkit (Chrome 11+) */ 
-background-image: -webkit-linear-gradient(right, #FFFFFF 0%, #3366FF 100%);
-
-/* W3C Markup */ 
-background-image: linear-gradient(to left, #FFFFFF 0%, #3366FF 100%);
+  background-image: -ms-linear-gradient(right, #FFFFFF 0%, #87AFC7 100%);
+  /* Mozilla Firefox */ 
+  background-image: -moz-linear-gradient(right, #FFFFFF 0%, #87AFC7 100%);
+  /* Opera */ 
+  background-image: -o-linear-gradient(right, #FFFFFF 0%, #87AFC7 100%);
+  /* Webkit (Safari/Chrome 10) */ 
+  background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #FFFFFF), color-stop(100, #87AFC7));
+  /* Webkit (Chrome 11+) */ 
+  background-image: -webkit-linear-gradient(right, #FFFFFF 0%, #87AFC7 100%);
+  /* W3C Markup */ 
+  background-image: linear-gradient(to left, #FFFFFF 0%, #87AFC7 100%);
 }
 
 .cat_headline_inside{
   position: absolute;
-  bottom: 0px;
+  bottom: 5px;
 }
 
 .display-4{
@@ -507,6 +506,8 @@ background-image: linear-gradient(to left, #FFFFFF 0%, #3366FF 100%);
   color: white;
   line-height: 0.70;
   letter-spacing: 3px;
+  text-shadow: -1px -2px 10px rgba(254, 252, 255, 0.5);
+  white-space: nowrap;
 }
 
 
