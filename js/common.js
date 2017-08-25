@@ -1,11 +1,7 @@
-$(document).ready(function() {
-	/* Запуск Preloader */
-	$(window).on('load', function() { // makes sure the whole site is loaded 
-	  $('.loader_inner').fadeOut(); // will first fade out the loading animation 
-	  $('.loader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
-	  $('body').delay(350).css({'overflow':'visible'});
-	})
+$(function() {
 	
+  $('body').removeClass('fade-out');
+
 	/* Высота header по высоте экрана и авторазмер рисунка под размер устройства */
 	function heightDetect(){
 		$(".main_head").css("height", $(window).height());
@@ -118,5 +114,31 @@ $(document).ready(function() {
     	}
   });
     
+	/* Анимация товаров */
+
+	$('.magnific_gallery').each(function(index , value){
+  var gallery = $(this);
+  var galleryImages = $(this).data('links').split(',');
+    var items = [];
+    for(var i=0;i<galleryImages.length; i++){
+      items.push({
+        src:galleryImages[i],
+        title:''
+      });
+    }
+    gallery.magnificPopup({
+      mainClass: 'mfp-fade',
+      items:items,
+      gallery:{
+        enabled:true,
+        tPrev: $(this).data('prev-text'),
+        tNext: $(this).data('next-text')
+      },
+      type: 'image'
+    });
+	});
+
 
 });
+
+	

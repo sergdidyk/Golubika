@@ -8,37 +8,14 @@ body {
   position: relative;
   line-height: 1.42857;
   -webkit-font-smoothing: antialised;
+  opacity: 1; /* fade появление всего контента */
+  transition: 0.8s opacity ease-in;
 }
 
-/* СТИЛИ PRELOADERа */
-  .loader{
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #fff;
-  /* change if the mask should have another color then white */
-  z-index: 9999;
-  /* makes sure it stays on top */
-  }
-
-  .loader_inner{
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    left: 50%;
-    /* centers the loading animation horizontally on the screen */
-    top: 50%;
-    /* centers the loading animation vertically on the screen */
-    background-image: url("../img/preloader.gif");
-    /* path to your loading animation */
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: -100px 0 0 -100px;
-    /* is width and height divided by two */
-  }
-/* КОНЕЦ СТИЛЕЙ PRELOADERа */
+body.fade-out {
+    opacity: 0;
+    transition: none;
+}
 
 section, .main_head{
   position: relative;
@@ -475,10 +452,11 @@ section, .main_head{
 /* КОНЕЦ КНОПКИ CALLBACK */
 
 
-/* СТИЛИ КАТАЛОГА */
+/* СТИЛИ ЗАГОЛОВКОВ КАТАЛОГА */
 .cat_headline{
   height: 120px;
   position: relative;
+  margin-bottom: 20px;
   /* IE10+ */ 
   background-image: -ms-linear-gradient(right, #FFFFFF 0%, #87AFC7 100%);
   /* Mozilla Firefox */ 
@@ -509,8 +487,150 @@ section, .main_head{
   text-shadow: -1px -2px 10px rgba(254, 252, 255, 0.5);
   white-space: nowrap;
 }
+/* КОНЕЦ СТИЛЕЙ ЗАГОЛОВКОВ КАТАЛОГА */
 
+/* ==============СТИЛИ ТОВАРОВ============== */
+.image_container{
+  position: relative;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
 
+.image_container:hover{
+  cursor: zoom-in;
+}
 
-/* КОНЕЦ СТИЛЕЙ КАТАЛОГА */
+.overlay{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #0C090A;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
 
+.image_container:hover .overlay{
+  opacity: 0.50;
+}
+
+.overlay span{
+  color: rgba(255, 255, 255, 0.70);
+  font-size: 3.0em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.img-fluid, .buy_container{
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  backface-visibility: hidden; 
+}
+
+.buy_container{
+  height: 40px;
+  margin-top: 3px;
+}
+
+.price{
+  position: relative;
+  border: 1px solid rgba(108, 187, 60, 1);
+  float: left;
+  width: 50%;
+  height: 100%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  cursor: default;
+}
+
+.buy_button{
+  position: relative;
+  background-color: rgba(108, 187, 60, 1);
+  float: right;
+  width: 50%;
+  height: 100%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.buy_button:hover{
+  background-color: rgba(108, 187, 60, 0.70);
+}
+
+.price span, .buy_button span{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  font-size: 1.3em;
+}
+
+.price span{
+  color: #000000; 
+}
+
+.buy_button span{
+  color: #FFFFFF;
+}
+
+/* ==============КОНЕЦ СТИЛЕЙ ТОВАРОВ============== */
+
+/* 
+=====ПЛАВНОЕ ПОЯВЛЕНИЕ ГАЛЕРЕИ ТОВАРОВ В МОДАЛЬНОМ ОКНЕ===
+ */
+/* overlay at start */
+.mfp-fade.mfp-bg {
+  opacity: 0;
+
+  -webkit-transition: all 0.30s ease-out;
+  -moz-transition: all 0.30s ease-out;
+  transition: all 0.30s ease-out;
+}
+/* overlay animate in */
+.mfp-fade.mfp-bg.mfp-ready {
+  opacity: 0.8;
+}
+/* overlay animate out */
+.mfp-fade.mfp-bg.mfp-removing40{
+  opacity: 0;
+}
+
+/* content at start */
+.mfp-fade.mfp-wrap .mfp-content {
+  opacity: 0;
+  -webkit-transition: all 0.30s ease-out;
+  -moz-transition: all 0.30s ease-out;
+  transition: all 0.30s ease-out;
+}
+/* content animate it */
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+  opacity: 1;
+}
+/* content animate out */
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+  opacity: 0;
+}
+/* ================================= */
