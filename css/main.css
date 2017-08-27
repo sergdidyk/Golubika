@@ -12,6 +12,10 @@ body {
   transition: 0.8s opacity ease-in;
 }
 
+.hidden{
+  display: none;
+}
+
 body.fade-out {
     opacity: 0;
     transition: none;
@@ -471,6 +475,10 @@ section, .main_head{
   background-image: linear-gradient(to left, #FFFFFF 0%, #87AFC7 100%);
 }
 
+.cat_headline:not(:first-child), .chapter_container:not(:first-child){
+  margin-top: 30px;
+}
+
 .cat_headline_inside{
   position: absolute;
   bottom: 5px;
@@ -487,9 +495,36 @@ section, .main_head{
   text-shadow: -1px -2px 10px rgba(254, 252, 255, 0.5);
   white-space: nowrap;
 }
+
+.cat_headline{
+  margin-bottom: 20px;
+}
+
+.good_chapter{
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 8px rgba(150, 150, 150, 1);
+  padding-top: 5px;
+  padding-bottom: 0px;
+  margin-bottom: 3px;
+}
+
+.good_chapter_underline{
+  height: 1px;
+  background: -webkit-radial-gradient(rgba(135, 175, 199, 1), rgba(175, 196, 209, 0.5), rgba(255, 255, 255, 1)); /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(rgba(135, 175, 199, 1), rgba(175, 196, 209, 0.5), rgba(255, 255, 255, 1)); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(rgba(135, 175, 199, 1), rgba(175, 196, 209, 0.5), rgba(255, 255, 255, 1)); /* For Firefox 3.6 to 15 */
+  background: radial-gradient(rgba(135, 175, 199, 1), rgba(175, 196, 209, 0.5), rgba(255, 255, 255, 1)); /* Standard syntax (must be last) */
+}
+
 /* КОНЕЦ СТИЛЕЙ ЗАГОЛОВКОВ КАТАЛОГА */
 
 /* ==============СТИЛИ ТОВАРОВ============== */
+.good_item{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .image_container{
   position: relative;
   -webkit-transition: all 0.5s ease;
@@ -545,7 +580,7 @@ section, .main_head{
 
 .buy_container{
   height: 40px;
-  margin-top: 3px;
+  margin-top: 2px;
 }
 
 .price{
@@ -573,9 +608,19 @@ section, .main_head{
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  margin      : 0;
+  padding     : 0;
+  border      : 0;
+  font-family : inherit;
+  outline: 0 !important;
 }
 
 .buy_button:hover{
+  background-color: rgba(108, 187, 60, 0.70);
+}
+
+.buy_button:focus{
+  outline: 0 !important;
   background-color: rgba(108, 187, 60, 0.70);
 }
 
@@ -590,6 +635,7 @@ section, .main_head{
 
 .price span{
   color: #000000; 
+  white-space: nowrap;
 }
 
 .buy_button span{
@@ -634,3 +680,16 @@ section, .main_head{
   opacity: 0;
 }
 /* ================================= */
+
+
+/* 
+=============СТИЛИ ФОРМЫ ЗАКАЗА И МОДАЛЬНОГО ОКНА==========
+ */
+.close:focus{
+  outline: none !important;
+}
+
+.input-group{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

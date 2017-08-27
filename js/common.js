@@ -1,4 +1,4 @@
-$(function() {
+$(function(){
 	
   $('body').removeClass('fade-out');
 
@@ -114,7 +114,7 @@ $(function() {
     	}
   });
     
-	/* Анимация товаров */
+	/* Анимация товаров, галерея*/
 
 	$('.magnific_gallery').each(function(index , value){
   var gallery = $(this);
@@ -137,6 +137,24 @@ $(function() {
       type: 'image'
     });
 	});
+
+	/* Клонировать инфо (фото, цену) в форму и удалять по закрытию*/
+	$(".buy_button").click(function(){
+		var x = $(this).parent().parent(); // родительский элемент 
+		var main_image = x.find(".main_photo"); // ищем основное фото товара
+		var good_price = x.find(".price span"); //	ищем цену товара	
+		main_image.clone().appendTo(".modal_good_photo").addClass("img-thumbnail"); //клонируем фото в форму		
+		good_price.clone().appendTo(".modal_good_price h2").addClass("badge badge-default");
+	});
+
+	$(".close_form, .send_form").click(function(){
+			setTimeout(function(){
+				$(".modal_good_photo .main_photo").remove(); // удаление на setTimeout, чтобы фото удалялось уже после полного закрытия модального окна
+				$(".modal_good_price h2>span").remove(); // удаляем цену из формы
+			}, 500);
+	});
+
+	/* Очистка полей ввода формы после отправки и закрытия, callback в модальном окне после отправки формы продумать*/
 
 
 });

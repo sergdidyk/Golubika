@@ -123,6 +123,10 @@
  			font-size: 1.50rem;
  		}
 
+		.close_form, .send_form{
+			font-size: 0.8em;
+		}
+
 }
 
 /* Custom, iPhone Retina */
