@@ -2,6 +2,14 @@
 		<?php 
 			global $lang;
 			$lang = pll_current_language();
+
+      /*Функция вывода имени категории в катомной таксономии в зависимости от полученного id*/
+			function echoName($item_id, $taxonomy_name){
+				$term = get_term($item_id, $taxonomy_name);
+				$name = $term->name;
+				echo($name);
+			}
+
 		?>
 
 
@@ -16,8 +24,9 @@
 						<div class="col-12">
 							<span class="cat_headtext">
 								<?php 
-									if($lang == "uk"){echo get_cat_name(62);
-															}else{echo get_cat_name(65);} ?>													
+									if($lang == "uk"){echoName(70 , 'catalog');
+															}else{echoName(72 , 'catalog');}
+							  ?>													
 							</span>
 						</div>
 					</div>
