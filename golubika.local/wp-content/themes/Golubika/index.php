@@ -128,16 +128,16 @@
 				<div class="row owl-carousel owl-theme stories_slider">
 				  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 					<!-- post -->
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 stories_wrapper">
-						<div class="row align-items-center">
-							<div class="story_image col-lg-3 col-md-4 col-sm-12">
-								<?php the_post_thumbnail('full', 'class=img-fluid'); ?>
-							</div>
-							<div class="story_text col-lg-9 col-md-8 col-sm-12">
-								<?php the_content(); ?>
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 stories_wrapper">
+							<div class="row align-items-center">
+								<div class="story_image col-lg-3 col-md-4 col-sm-12">
+									<?php the_post_thumbnail('full', 'class=img-fluid'); ?>
+								</div>
+								<div class="story_text col-lg-9 col-md-8 col-sm-12">
+									<?php the_content(); ?>
+								</div>
 							</div>
 						</div>
-					</div>
 					<?php endwhile; ?>
 					<!-- post navigation -->
 					<?php else: ?>

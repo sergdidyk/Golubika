@@ -140,6 +140,20 @@ $(function(){
     });
 	});
 
+
+	/* -------- Перенос названия и цены заказываемого товара в нередактируемые inputs формы --------- */
+	$(".buy_button").click(function(){
+		var x = $(this).parent().parent(); // родительский элемент 2-го уровня
+		var prod_name = x.find("div.prod_name").html(); 
+		var prod_descr = x.find("div.prod_descr").html();
+		var input_value = $("#order_product").val(prod_name); // назв. товара в input
+		var input_value = $("#order_product_descr").val(prod_descr);
+
+		var good_price = x.find(".prod_currentprice>span, .prod_newprice>span").html(); //	ищем цену товара
+		$("#order_price").val(good_price); //вставляем цену в нередактируемый input формы
+	});
+
+
 	/* -------- FORMS VALIDATION --------- */
 	jQuery.validator.addMethod("phonenumber", function(phone_number, element) {
 	    phone_number = phone_number.replace(/\s+/g, "");
@@ -204,17 +218,6 @@ $(function(){
 				maxlength: "Максимальна кількість символів: 200"
 			}
 		}
-	});
-
-	$(".buy_button").click(function(){
-		var x = $(this).parent().parent(); // родительский элемент 2-го уровня
-		var prod_name = x.find("div.prod_name").html(); 
-		var prod_descr = x.find("div.prod_descr").html();
-		var input_value = $("#order_product").val(prod_name); // назв. товара в input
-		var input_value = $("#order_product_descr").val(prod_descr);
-
-		var good_price = x.find(".prod_currentprice>span, .prod_newprice>span").html(); //	ищем цену товара
-		$("#order_price").val(good_price);
 	});
 
 	$(".customorder_form").validate({
