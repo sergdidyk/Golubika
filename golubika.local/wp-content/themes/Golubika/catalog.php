@@ -5,7 +5,7 @@
 		?>
 
 
-		<!-- Catalog start -->
+		<!-- CATALOG -->
 
 		<div class="catalogue" id="cat">
 
@@ -14,21 +14,26 @@
 					<div class="row cat_headline_inside">
 						<div class="col-12">
 							<span class="cat_headtext">
-									<?php if($lang == "uk"){
-													echo get_cat_name(73);
-												}else{
-													echo get_cat_name(75);
-												} ?>																
+									<?php 
+										if($lang == "uk"){
+											echo get_cat_name(73);
+										}else{
+											echo get_cat_name(75);
+										} 
+									?>																
 							</span>
 						</div>
 					</div>
 				</div>
 
-
 				<div class="novelty container-fluid">
 					<div class="row">
-
-					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+					<?php 
+						//предотвращение дублирования постов из др. категорий/циклов
+						$query = new WP_Query(array( 'cat' => '-4,-45' ));
+						if( $query->have_posts() ){
+								while( $query->have_posts() ){ $query->the_post();
+					?>
 						<!-- post -->			
 						<div class="good_item col-lg-3 col-sm-6 col-xs-12">
 								<div class="image_container">
@@ -56,14 +61,26 @@
 									<div class="prod_status">
 										<?php 
 											$avl = carbon_get_the_post_meta('crb_order_availability');
-												if( $avl === false  )
-													$text = 'Поле не вибрано';
-												if( $avl == 'available' )
-													$text = 'В наявності';
-												if( $avl == 'not_available' )
-													$text = 'Немає в наявності';
-												if( $avl == 'pre_order' )
-													$text = 'Доступний за передзамовленням';
+												if( $avl === false  ){
+													if($lang == "uk"){
+														    $text = 'Поле не вибрано';
+													}else{$text = 'Field is not specified';}	
+												}
+												if( $avl == 'available' ){
+													if($lang == "uk"){
+														    $text = 'В наявності';
+													}else{$text = 'Available';}	
+												}
+												if( $avl == 'not_available' ){
+													if($lang == "uk"){
+														    $text = 'Немає в наявності';
+													}else{$text = 'Not available';}	
+												}
+												if( $avl == 'pre_order' ){
+													if($lang == "uk"){
+														    $text = 'Доступний за передзамовленням';
+													}else{$text = 'Available for pre-order';}	
+												}
 												echo $text;
 											?>
 									</div>
@@ -78,25 +95,33 @@
 									</div>	
 								</div>
 						</div>
-					<?php endwhile; ?>
-						<!-- post navigation -->
-					<?php else: ?>
-						<!-- no posts found -->
-					<?php endif; ?>
-						
+						<?php
+								}
+								wp_reset_postdata(); // сбрасываем переменную $post
+							} 
+							else echo 'Отсутствуют товары в категории';
+						?>
 					</div>
 				</div>	
-
+				<!-- Post end -->
 				<!-- New collection end -->
 				
 
 
-
-
+				
+				<!-- Bags -->
 				<div class="container-fluid cat_headline" id="bags">
 					<div class="row cat_headline_inside">
 						<div class="col-12">
-							<span class="cat_headtext">сумки</span>
+							<span class="cat_headtext">
+								<?php 
+									if($lang == "uk"){
+										echo get_cat_name(80);
+									}else{
+										echo get_cat_name(82);
+									} 
+								?>		
+							</span>
 						</div>
 					</div>
 				</div>

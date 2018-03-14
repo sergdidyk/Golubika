@@ -117,7 +117,6 @@
 
 		<div class="stories" id="ourstor">
 			<div class="stories_headline">
-				<!--Заголовки содержат уникальный id. Без условия Polylang не переводит из админки-->
 				<span class="stories_headtext"><?php if($lang == "uk"){
 						echo get_cat_name(4);
 					}else{
@@ -126,7 +125,12 @@
 			</div>
 			<div class="container-fluid stories_container">
 				<div class="row owl-carousel owl-theme stories_slider">
-				  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+				 	<?php 
+						//no post duplicates
+						$query = new WP_Query(array( 'cat' => '-73,-75' ));
+						if( $query->have_posts() ){
+								while( $query->have_posts() ){ $query->the_post();
+					?>
 					<!-- post -->
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 stories_wrapper">
 							<div class="row align-items-center">
@@ -138,11 +142,12 @@
 								</div>
 							</div>
 						</div>
-					<?php endwhile; ?>
-					<!-- post navigation -->
-					<?php else: ?>
-					<!-- no posts found -->
-					<?php endif; ?>
+					<?php
+							}
+							wp_reset_postdata(); // сбрасываем переменную $post
+						} 
+						else echo 'Записи отсутствуют';
+					?>
 				</div>
 			</div>
 		</div>	
