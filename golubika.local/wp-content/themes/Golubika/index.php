@@ -3,7 +3,7 @@
 		get_header(); 	 
 		
 		global $lang;
-		$lang = pll_current_language(); //определяем текущий язык страницы (функция Polylang);
+		$lang = pll_current_language(); //define current language
 	?>
 
 	<section>
@@ -127,7 +127,7 @@
 				<div class="row owl-carousel owl-theme stories_slider">
 				 	<?php 
 						//no post duplicates
-						$query = new WP_Query(array( 'cat' => '-73,-75' ));
+						$query = new WP_Query(array( 'cat' => '-73,-75,-80,-82,-89,-91,-93,-95' ));
 						if( $query->have_posts() ){
 								while( $query->have_posts() ){ $query->the_post();
 					?>
