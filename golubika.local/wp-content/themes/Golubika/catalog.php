@@ -2,6 +2,47 @@
 		<?php 
 			global $lang;
 			$lang = pll_current_language();
+
+			function selectProductAvailability($avl, $lang){
+				if( $avl === false  ){
+					if($lang == "uk"){
+							    $text = 'Поле не вибрано';
+						}else{$text = 'Field is not specified';}	
+				}
+				if( $avl == 'available' ){
+					if($lang == "uk"){
+						    $text = 'В наявності';
+					}else{$text = 'Available';}	
+				}
+				if( $avl == 'not_available' ){
+					if($lang == "uk"){
+						    $text = 'Немає в наявності';
+					}else{$text = 'Not available';}	
+				}
+				if( $avl == 'pre_order' ){
+					if($lang == "uk"){
+						    $text = 'Доступний за передзамовленням';
+					}else{$text = 'Available for pre-order';}	
+				}
+				echo $text;
+			}
+
+			function showProductPhoto($main_photo, $second_photo, $third_photo){
+				echo $main_photo;
+				if($second_photo){echo ','.$second_photo;};
+				if($third_photo){echo ','.$third_photo;};	
+			}
+
+			function showProductPrice($numPrice, $lang){
+				echo $numPrice;
+				if ($lang == "uk"){echo " грн";
+				}else{echo " &euro;";} 
+			}
+
+			function showOrderBtnText($lang){
+				if ($lang == "uk"){echo "замовити";
+				}else{echo "order now";}
+			}
 		?>
 
 
@@ -13,15 +54,7 @@
 				<div class="container-fluid cat_headline">
 					<div class="row cat_headline_inside">
 						<div class="col-12">
-							<span class="cat_headtext">
-									<?php 
-										if($lang == "uk"){
-											echo get_cat_name(73);
-										}else{
-											echo get_cat_name(75);
-										} 
-									?>																
-							</span>
+							<span class="cat_headtext"> <?php showCategoryName(73, 75, $lang); ?> </span>
 						</div>
 					</div>
 				</div>
@@ -30,7 +63,7 @@
 					<div class="row">
 					<?php 
 						//post duplicate prevention
-						$query = new WP_Query(array( 'cat' => '-4,-45,-80,-82,-89,-91,-93,-95' ));
+						$query = new WP_Query(array( 'cat' => '-4,-45,-80,-82,-89,-91,-93,-95,-101,-103' ));
 						if( $query->have_posts() ){
 								while( $query->have_posts() ){ $query->the_post();
 					?>
@@ -41,16 +74,13 @@
 														$main_photo = carbon_get_the_post_meta('crb_main_photo');
 														$second_photo = carbon_get_the_post_meta('crb_secondary_photo1');
 														$third_photo = carbon_get_the_post_meta('crb_secondary_photo2');
-														echo $main_photo;
-														if($second_photo){echo ','.$second_photo;};
-														if($third_photo){echo ','.$third_photo;};													
+														showProductPhoto($main_photo, $second_photo, $third_photo);												
 													?>"				
 												 class="magnific_gallery main_photo img-fluid" 
 												 src="<?php echo carbon_get_the_post_meta( 'crb_main_photo' ); ?>"/>
 									  <div class="buy_button buy_desktop" data-toggle="modal" data-target=".order_form">
 									  	<div class="buy_text"><?php
-														if ($lang == "uk"){echo "замовити";
-														}else{echo "order now";} 
+														showOrderBtnText($lang);
 													?>
 											</div>
 									  </div>
@@ -61,35 +91,14 @@
 									<div class="prod_status">
 										<?php 
 											$avl = carbon_get_the_post_meta('crb_order_availability');
-												if( $avl === false  ){
-													if($lang == "uk"){
-														    $text = 'Поле не вибрано';
-													}else{$text = 'Field is not specified';}	
-												}
-												if( $avl == 'available' ){
-													if($lang == "uk"){
-														    $text = 'В наявності';
-													}else{$text = 'Available';}	
-												}
-												if( $avl == 'not_available' ){
-													if($lang == "uk"){
-														    $text = 'Немає в наявності';
-													}else{$text = 'Not available';}	
-												}
-												if( $avl == 'pre_order' ){
-													if($lang == "uk"){
-														    $text = 'Доступний за передзамовленням';
-													}else{$text = 'Available for pre-order';}	
-												}
-												echo $text;
+											selectProductAvailability($avl, $lang);
 											?>
 									</div>
 									<div class="prod_currentprice">
 										<span>
 											<?php
-												echo carbon_get_the_post_meta('crb_good_price'); 
-												if ($lang == "uk"){echo " грн";
-												}else{echo " &euro;";} 
+												$numPrice = carbon_get_the_post_meta('crb_good_price'); 
+												showProductPrice($numPrice, $lang);
 											?>
 										</span>
 									</div>	
@@ -111,15 +120,7 @@
 				<div class="container-fluid cat_headline" id="bags">
 					<div class="row cat_headline_inside">
 						<div class="col-12">
-							<span class="cat_headtext">
-								<?php 
-									if($lang == "uk"){
-										echo get_cat_name(80);
-									}else{
-										echo get_cat_name(82);
-									} 
-								?>		
-							</span>
+							<span class="cat_headtext"><?php showCategoryName(80, 82, $lang); ?> </span>
 						</div>
 					</div>
 				</div>
@@ -128,7 +129,7 @@
 					<div class="row">
 					<?php 
 						//post duplicate prevention
-						$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-89,-91,-93,-95' ));
+						$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-89,-91,-93,-95,-101,-103' ));
 						if( $query->have_posts() ){
 								while( $query->have_posts() ){ $query->the_post();
 					?>
@@ -139,17 +140,14 @@
 														$main_photo = carbon_get_the_post_meta('crb_main_photo');
 														$second_photo = carbon_get_the_post_meta('crb_secondary_photo1');
 														$third_photo = carbon_get_the_post_meta('crb_secondary_photo2');
-														echo $main_photo;
-														if($second_photo){echo ','.$second_photo;};
-														if($third_photo){echo ','.$third_photo;};													
+														showProductPhoto($main_photo, $second_photo, $third_photo);												
 													?>" 
 												 class="magnific_gallery main_photo img-fluid" 
 												 src="<?php echo carbon_get_the_post_meta( 'crb_main_photo' ); ?>"/>
 									  <div class="buy_button buy_desktop" data-toggle="modal" data-target=".order_form">
 									  	<div class="buy_text">
 								  			<?php
-													if ($lang == "uk"){echo "замовити";
-													}else{echo "order now";} 
+													showOrderBtnText($lang);
 												?>
 											</div>
 									  </div>
@@ -160,35 +158,14 @@
 									<div class="prod_status">
 										<?php 
 											$avl = carbon_get_the_post_meta('crb_order_availability');
-											if( $avl === false  ){
-												if($lang == "uk"){
-													    $text = 'Поле не вибрано';
-												}else{$text = 'Field is not specified';}	
-											}
-											if( $avl == 'available' ){
-												if($lang == "uk"){
-													    $text = 'В наявності';
-												}else{$text = 'Available';}	
-											}
-											if( $avl == 'not_available' ){
-												if($lang == "uk"){
-													    $text = 'Немає в наявності';
-												}else{$text = 'Not available';}	
-											}
-											if( $avl == 'pre_order' ){
-												if($lang == "uk"){
-													    $text = 'Доступний за передзамовленням';
-												}else{$text = 'Available for pre-order';}	
-											}
-											echo $text;
+											selectProductAvailability($avl, $lang);
 										?>
 									</div>
 									<div class="prod_currentprice">
 										<span>
 											<?php
-												echo carbon_get_the_post_meta('crb_good_price'); 
-												if ($lang == "uk"){echo " грн";
-												}else{echo " &euro;";} 
+												$numPrice = carbon_get_the_post_meta('crb_good_price'); 
+												showProductPrice($numPrice, $lang);
 											?>
 										</span>
 									</div>	
@@ -210,15 +187,7 @@
 				<div class="container-fluid cat_headline" id="accs">
 					<div class="row cat_headline_inside">
 						<div class="col-12">
-							<span class="cat_headtext">
-								<?php 
-									if($lang == "uk"){
-										echo get_cat_name(85);
-									}else{
-										echo get_cat_name(87);
-									} 
-								?>		
-							</span>
+							<span class="cat_headtext"> <?php showCategoryName(85, 87, $lang); ?></span>
 						</div>
 					</div>
 				</div>
@@ -228,7 +197,7 @@
 					<div class="row">
 						<?php 
 							//post duplicate prevention
-							$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-80,-82,-93,-95' ));
+							$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-80,-82,-93,-95,-101,-103' ));
 							if( $query->have_posts() ){
 									while( $query->have_posts() ){ $query->the_post();
 						?>
@@ -238,17 +207,14 @@
 														$main_photo = carbon_get_the_post_meta('crb_main_photo');
 														$second_photo = carbon_get_the_post_meta('crb_secondary_photo1');
 														$third_photo = carbon_get_the_post_meta('crb_secondary_photo2');
-														echo $main_photo;
-														if($second_photo){echo ','.$second_photo;};
-														if($third_photo){echo ','.$third_photo;};													
+														showProductPhoto($main_photo, $second_photo, $third_photo);												
 													?>" 
 												 class="magnific_gallery main_photo img-fluid" 
 												 src="<?php echo carbon_get_the_post_meta( 'crb_main_photo' ); ?>"/>
 									  <div class="buy_button buy_desktop" data-toggle="modal" data-target=".order_form">
 									  	<div class="buy_text">
 												<?php
-													if ($lang == "uk"){echo "замовити";
-													}else{echo "order now";} 
+													showOrderBtnText($lang);
 												?>
 									  	</div>
 									  </div>
@@ -259,35 +225,14 @@
 									<div class="prod_status">
 										<?php 
 											$avl = carbon_get_the_post_meta('crb_order_availability');
-											if( $avl === false  ){
-												if($lang == "uk"){
-													    $text = 'Поле не вибрано';
-												}else{$text = 'Field is not specified';}	
-											}
-											if( $avl == 'available' ){
-												if($lang == "uk"){
-													    $text = 'В наявності';
-												}else{$text = 'Available';}	
-											}
-											if( $avl == 'not_available' ){
-												if($lang == "uk"){
-													    $text = 'Немає в наявності';
-												}else{$text = 'Not available';}	
-											}
-											if( $avl == 'pre_order' ){
-												if($lang == "uk"){
-													    $text = 'Доступний за передзамовленням';
-												}else{$text = 'Available for pre-order';}	
-											}
-											echo $text;
+											selectProductAvailability($avl, $lang);
 										?>
 									</div>
 									<div class="prod_currentprice">
 										<span>
 											<?php
-												echo carbon_get_the_post_meta('crb_good_price'); 
-												if ($lang == "uk"){echo " грн";
-												}else{echo " &euro;";} 
+												$numPrice = carbon_get_the_post_meta('crb_good_price'); 
+												showProductPrice($numPrice, $lang); 
 											?>
 										</span>
 									</div>	
@@ -310,7 +255,7 @@
 
 						<?php 
 							//post duplicate prevention
-							$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-80,-82,-89,-91' ));
+							$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-80,-82,-89,-91,-101,-103' ));
 							if( $query->have_posts() ){
 									while( $query->have_posts() ){ $query->the_post();
 						?>
@@ -320,17 +265,14 @@
 														$main_photo = carbon_get_the_post_meta('crb_main_photo');
 														$second_photo = carbon_get_the_post_meta('crb_secondary_photo1');
 														$third_photo = carbon_get_the_post_meta('crb_secondary_photo2');
-														echo $main_photo;
-														if($second_photo){echo ','.$second_photo;};
-														if($third_photo){echo ','.$third_photo;};													
+														showProductPhoto($main_photo, $second_photo, $third_photo);														
 													?>" 
 												 class="magnific_gallery main_photo img-fluid" 
 												 src="<?php echo carbon_get_the_post_meta( 'crb_main_photo' ); ?>"/>
 									  <div class="buy_button buy_desktop" data-toggle="modal" data-target=".order_form">
 									  	<div class="buy_text">
 									  		<?php
-													if ($lang == "uk"){echo "замовити";
-													}else{echo "order now";} 
+													showOrderBtnText($lang);
 												?>
 											</div>
 									  </div>
@@ -341,35 +283,14 @@
 									<div class="prod_status">
 										<?php 
 											$avl = carbon_get_the_post_meta('crb_order_availability');
-											if( $avl === false  ){
-												if($lang == "uk"){
-													    $text = 'Поле не вибрано';
-												}else{$text = 'Field is not specified';}	
-											}
-											if( $avl == 'available' ){
-												if($lang == "uk"){
-													    $text = 'В наявності';
-												}else{$text = 'Available';}	
-											}
-											if( $avl == 'not_available' ){
-												if($lang == "uk"){
-													    $text = 'Немає в наявності';
-												}else{$text = 'Not available';}	
-											}
-											if( $avl == 'pre_order' ){
-												if($lang == "uk"){
-													    $text = 'Доступний за передзамовленням';
-												}else{$text = 'Available for pre-order';}	
-											}
-											echo $text;
+											selectProductAvailability($avl, $lang);
 										?>
 									</div>
 									<div class="prod_currentprice">
 										<span>
 											<?php
-												echo carbon_get_the_post_meta('crb_good_price'); 
-												if ($lang == "uk"){echo " грн";
-												}else{echo " &euro;";} 
+												$numPrice = carbon_get_the_post_meta('crb_good_price'); 
+												showProductPrice($numPrice, $lang);
 											?>
 										</span>
 									</div>	
@@ -387,38 +308,66 @@
 				<!-- Accessories end -->
 
 
-
+				<!-- For men -->
 				<div class="container-fluid cat_headline" id="men">
 					<div class="row cat_headline_inside">
 						<div class="col-12">
-							<span class="cat_headtext">чоловікам</span>
+							<span class="cat_headtext"><?php showCategoryName(101, 103, $lang); ?></span>
 						</div>
 					</div>
 				</div>
 
 				<div class="for_men container-fluid">
 					<div class="row">
+						<?php 
+							//post duplicate prevention
+							$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-80,-82,-89,-91,-93,-95' ));
+							if( $query->have_posts() ){
+									while( $query->have_posts() ){ $query->the_post();
+						?>
+						<!-- post -->
 						<div class="good_item col-lg-4 col-md-4 col-sm-6 col-xs-12">
 							<div class="image_container">
-									<img alt="image" data-links="<?php echo get_template_directory_uri(); ?>/img/range/for_men/1.jpg, 
-																							 <?php echo get_template_directory_uri(); ?>/img/range/for_men/2.jpg, 
-																							 <?php echo get_template_directory_uri(); ?>/img/range/for_men/3.jpg" 
-											 class="magnific_gallery main_photo img-fluid" 
-											 src="<?php echo get_template_directory_uri(); ?>/img/range/for_men/1.jpg"/>
+									<img alt="image" data-links="<?php 
+														$main_photo = carbon_get_the_post_meta('crb_main_photo');
+														$second_photo = carbon_get_the_post_meta('crb_secondary_photo1');
+														$third_photo = carbon_get_the_post_meta('crb_secondary_photo2');
+														showProductPhoto($main_photo, $second_photo, $third_photo);												
+													?>" 
+											 class="magnific_gallery main_photo img-fluid"		
+											 src="<?php echo carbon_get_the_post_meta( 'crb_main_photo' ); ?>"/>
 								  <div class="buy_button buy_desktop" data-toggle="modal" data-target=".order_form">
-								  	<div class="buy_text">Замовити</div>
+								  	<div class="buy_text">
+								  		<?php
+												showOrderBtnText($lang);
+											?></div>
 								  </div>
 	  				  </div>
 							<div class="description_container">
-								<div class="prod_name">Чоловіча сумка на пояс</div>
-								<div class="prod_descr">темно синього кольору, з двома відділеннями та магнітною застібкою</div>
-								<div class="prod_status">В наявності</div>
-								<div class="prod_currentprice"><span>1000 грн</span></div>	
+								<div class="prod_name"><?php echo carbon_get_the_post_meta( 'crb_good_name' );?></div>
+								<div class="prod_descr"><?php echo carbon_get_the_post_meta( 'crb_good_descr' ); ?></div>
+								<div class="prod_status"><?php $avl = carbon_get_the_post_meta('crb_order_availability');
+																								selectProductAvailability($avl, $lang);?>
+								</div>
+								<div class="prod_currentprice">
+									<span>
+										<?php
+											$numPrice = carbon_get_the_post_meta('crb_good_price'); 
+											showProductPrice($numPrice, $lang);
+										?>
+									</span>
+								</div>	
 							</div>
 						</div>
+						<?php
+								}
+								wp_reset_postdata(); // reset variable $post
+							} 
+							else echo 'Отсутствуют товары в категории';
+						?>
 					</div>
 				</div>
-
+				<!-- For men end-->
 
 
 				<div class="container-fluid cat_headline" id="sale">

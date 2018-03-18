@@ -4,6 +4,14 @@
 		
 		global $lang;
 		$lang = pll_current_language(); //define current language
+
+		function showCategoryName($id_ua, $id_en, $lang){
+			if($lang == "uk"){
+				echo get_cat_name($id_ua);
+			}else{
+				echo get_cat_name($id_en);
+			} 
+		}
 	?>
 
 	<section>
@@ -117,17 +125,17 @@
 
 		<div class="stories" id="ourstor">
 			<div class="stories_headline">
-				<span class="stories_headtext"><?php if($lang == "uk"){
-						echo get_cat_name(4);
-					}else{
-						echo get_cat_name(45);
-					} ?></span>
+				<span class="stories_headtext">
+					<?php 
+						showCategoryName(4, 45, $lang);
+					?>
+				</span>
 			</div>
 			<div class="container-fluid stories_container">
 				<div class="row owl-carousel owl-theme stories_slider">
 				 	<?php 
 						//no post duplicates
-						$query = new WP_Query(array( 'cat' => '-73,-75,-80,-82,-89,-91,-93,-95' ));
+						$query = new WP_Query(array( 'cat' => '-73,-75,-80,-82,-89,-91,-93,-95,-101,-103' ));
 						if( $query->have_posts() ){
 								while( $query->have_posts() ){ $query->the_post();
 					?>
