@@ -39,6 +39,12 @@
 				}else{echo " &euro;";} 
 			}
 
+			function showOldPrice($numOldPrice, $lang){
+				echo $numOldPrice;
+				if ($lang == "uk"){echo " грн";
+				}else{echo " &euro;";} 
+			}
+
 			function showOrderBtnText($lang){
 				if ($lang == "uk"){echo "замовити";
 				}else{echo "order now";}
@@ -63,7 +69,7 @@
 					<div class="row">
 					<?php 
 						//post duplicate prevention
-						$query = new WP_Query(array( 'cat' => '-4,-45,-80,-82,-89,-91,-93,-95,-101,-103' ));
+						$query = new WP_Query(array( 'cat' => '-4,-45,-80,-82,-89,-91,-93,-95,-101,-103,-107,-109' ));
 						if( $query->have_posts() ){
 								while( $query->have_posts() ){ $query->the_post();
 					?>
@@ -129,7 +135,7 @@
 					<div class="row">
 					<?php 
 						//post duplicate prevention
-						$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-89,-91,-93,-95,-101,-103' ));
+						$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-89,-91,-93,-95,-101,-103,-107,-109' ));
 						if( $query->have_posts() ){
 								while( $query->have_posts() ){ $query->the_post();
 					?>
@@ -197,7 +203,7 @@
 					<div class="row">
 						<?php 
 							//post duplicate prevention
-							$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-80,-82,-93,-95,-101,-103' ));
+							$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-80,-82,-93,-95,-101,-103,-107,-109' ));
 							if( $query->have_posts() ){
 									while( $query->have_posts() ){ $query->the_post();
 						?>
@@ -255,7 +261,7 @@
 
 						<?php 
 							//post duplicate prevention
-							$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-80,-82,-89,-91,-101,-103' ));
+							$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-80,-82,-89,-91,-101,-103,-107,-109' ));
 							if( $query->have_posts() ){
 									while( $query->have_posts() ){ $query->the_post();
 						?>
@@ -321,7 +327,7 @@
 					<div class="row">
 						<?php 
 							//post duplicate prevention
-							$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-80,-82,-89,-91,-93,-95' ));
+							$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-80,-82,-89,-91,-93,-95,-107,-109' ));
 							if( $query->have_posts() ){
 									while( $query->have_posts() ){ $query->the_post();
 						?>
@@ -337,10 +343,7 @@
 											 class="magnific_gallery main_photo img-fluid"		
 											 src="<?php echo carbon_get_the_post_meta( 'crb_main_photo' ); ?>"/>
 								  <div class="buy_button buy_desktop" data-toggle="modal" data-target=".order_form">
-								  	<div class="buy_text">
-								  		<?php
-												showOrderBtnText($lang);
-											?></div>
+								  	<div class="buy_text"><?php showOrderBtnText($lang); ?></div>
 								  </div>
 	  				  </div>
 							<div class="description_container">
@@ -373,34 +376,67 @@
 				<div class="container-fluid cat_headline" id="sale">
 					<div class="row cat_headline_inside">
 						<div class="col-12">
-							<span class="cat_headtext">розпродаж</span>
+							<span class="cat_headtext"><?php showCategoryName(107, 109, $lang); ?></span>
 						</div>
 					</div>
 				</div>
 
 				<div class="sale container-fluid">
 					<div class="row">
+						<?php 
+							//post duplicate prevention
+							$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-80,-82,-89,-91,-93,-95,-101,-103'));
+							if( $query->have_posts() ){
+									while( $query->have_posts() ){ $query->the_post();
+						?>
+						<!-- post -->
 						<div class="good_item col-lg-3 col-sm-6 col-xs-12">
 							<div class="image_container">
-								<img alt="image" data-links="<?php echo get_template_directory_uri(); ?>/img/range/sale/1.jpg" 
+								<img alt="image" data-links="<?php 
+														$main_photo = carbon_get_the_post_meta('crb_main_photo');
+														$second_photo = carbon_get_the_post_meta('crb_secondary_photo1');
+														$third_photo = carbon_get_the_post_meta('crb_secondary_photo2');
+														showProductPhoto($main_photo, $second_photo, $third_photo);												
+													?>" 
 												 class="magnific_gallery main_photo img-fluid" 
-												 src="<?php echo get_template_directory_uri(); ?>/img/range/sale/1.jpg"/>
+												 src="<?php echo carbon_get_the_post_meta( 'crb_main_photo' ); ?>"/>
 							  <div class="buy_button buy_desktop" data-toggle="modal" data-target=".order_form">
-							  	<div class="buy_text">Замовити</div>
+							  	<div class="buy_text"><?php showOrderBtnText($lang); ?></div>
 							  </div>
 		  				</div>
 							<div class="description_container">
-								<div class="prod_name">Сумка для шопінгу</div>
-								<div class="prod_descr">салатового кольору з принтом паприка</div>
-								<div class="prod_status">В наявності</div>
+								<div class="prod_name"><?php echo carbon_get_the_post_meta( 'crb_good_name' );?></div>
+								<div class="prod_descr"><?php echo carbon_get_the_post_meta( 'crb_good_descr' ); ?></div>
+								<div class="prod_status"><?php $avl = carbon_get_the_post_meta('crb_order_availability');
+																							 selectProductAvailability($avl, $lang);?></div>
 								<div class="container_fluid">
 									<div class="row">
-										<div class="prod_oldprice col-6"><span>1200 грн</span></div>	
-										<div class="prod_newprice col-6"><span>900 грн</span></div>	
+										<div class="prod_oldprice col-6">
+											<span>
+												<?php
+													$numPrice = carbon_get_the_post_meta('crb_good_price'); 
+													showProductPrice($numPrice, $lang);
+												?>
+											</span>
+									  </div>	
+										<div class="prod_newprice col-6">
+											<span>
+												<?php
+													$numOldPrice = carbon_get_the_post_meta('crb_good_old_price'); 
+													showProductPrice($numOldPrice, $lang);
+												?>
+											</span>
+										</div>	
 									</div>	
 								</div>
 							</div>
 						</div>
+						<?php
+								}
+								wp_reset_postdata(); // reset variable $post
+							} 
+							else echo 'Отсутствуют товары в категории';
+						?>
 					</div>
 				</div>
 		

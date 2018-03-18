@@ -135,7 +135,7 @@
 				<div class="row owl-carousel owl-theme stories_slider">
 				 	<?php 
 						//no post duplicates
-						$query = new WP_Query(array( 'cat' => '-73,-75,-80,-82,-89,-91,-93,-95,-101,-103' ));
+						$query = new WP_Query(array( 'cat' => '-73,-75,-80,-82,-89,-91,-93,-95,-101,-103,-107,-109' ));
 						if( $query->have_posts() ){
 								while( $query->have_posts() ){ $query->the_post();
 					?>
