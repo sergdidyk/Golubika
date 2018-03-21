@@ -69,7 +69,7 @@
 					<div class="row">
 					<?php 
 						//post duplicate prevention
-						$query = new WP_Query(array( 'cat' => '-4,-45,-80,-82,-89,-91,-93,-95,-101,-103,-107,-109' ));
+						$query = new WP_Query(array( 'cat' => '-1,-125,-4,-45,-80,-82,-89,-91,-93,-95,-101,-103,-107,-109,-110,-112' ));
 						if( $query->have_posts() ){
 								while( $query->have_posts() ){ $query->the_post();
 					?>
@@ -135,7 +135,7 @@
 					<div class="row">
 					<?php 
 						//post duplicate prevention
-						$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-89,-91,-93,-95,-101,-103,-107,-109' ));
+						$query = new WP_Query(array( 'cat' => '-1,-125,-4,-45,-73,-75,-89,-91,-93,-95,-101,-103,-107,-109,-110,-112' ));
 						if( $query->have_posts() ){
 								while( $query->have_posts() ){ $query->the_post();
 					?>
@@ -203,7 +203,7 @@
 					<div class="row">
 						<?php 
 							//post duplicate prevention
-							$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-80,-82,-93,-95,-101,-103,-107,-109' ));
+							$query = new WP_Query(array( 'cat' => '-1,-125,-4,-45,-73,-75,-80,-82,-93,-95,-101,-103,-107,-109,-110,-112' ));
 							if( $query->have_posts() ){
 									while( $query->have_posts() ){ $query->the_post();
 						?>
@@ -261,7 +261,7 @@
 
 						<?php 
 							//post duplicate prevention
-							$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-80,-82,-89,-91,-101,-103,-107,-109' ));
+							$query = new WP_Query(array( 'cat' => '-1,-125,-4,-45,-73,-75,-80,-82,-89,-91,-101,-103,-107,-109,-110,-112' ));
 							if( $query->have_posts() ){
 									while( $query->have_posts() ){ $query->the_post();
 						?>
@@ -327,7 +327,7 @@
 					<div class="row">
 						<?php 
 							//post duplicate prevention
-							$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-80,-82,-89,-91,-93,-95,-107,-109' ));
+							$query = new WP_Query(array( 'cat' => '-1,-125,-4,-45,-73,-75,-80,-82,-89,-91,-93,-95,-107,-109,-110,-112' ));
 							if( $query->have_posts() ){
 									while( $query->have_posts() ){ $query->the_post();
 						?>
@@ -385,7 +385,7 @@
 					<div class="row">
 						<?php 
 							//post duplicate prevention
-							$query = new WP_Query(array( 'cat' => '-4,-45,-73,-75,-80,-82,-89,-91,-93,-95,-101,-103'));
+							$query = new WP_Query(array( 'cat' => '-1,-125,-4,-45,-73,-75,-80,-82,-89,-91,-93,-95,-101,-103,-110,-112'));
 							if( $query->have_posts() ){
 									while( $query->have_posts() ){ $query->the_post();
 						?>
