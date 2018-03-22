@@ -130,7 +130,11 @@
 		</div>
 
 		<div class="about" id="abus">
-			<div class="about_image" data-src="<?php showSinglePostImage(274, 276, $lang); ?>"  data-pos-x="left" data-parallax id="top"></div>
+			<div class="about_image" data-src="<?php showSinglePostImage(274, 276, $lang); ?>"  
+															 data-pos-x="left" 
+															 data-parallax id="top"
+															 data-over-scroll-fix="true">
+			</div>
 			<div class="col-12 about_headline">
 				<div class="about_headtext"><?php showSinglePostTitle(274, 276, $lang) ?></div>
 			</div>

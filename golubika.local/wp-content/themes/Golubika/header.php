@@ -15,7 +15,11 @@
 	  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/main.css" />
 	  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/media.css" />
 
-	  <?php wp_head(); ?>
+	  <?php 
+	  	wp_head(); 
+	  	global $lang;
+			$lang = pll_current_language();
+	  ?>
 </head>
 
 <body>
@@ -66,19 +70,50 @@
 
 		<div class="facebook">
 			<div class="button_wrap">
-				<a class="button_aRight" id="button_aRight_fb"><span>Сторінка GOLUBIKA у Facebook</span></a>
+				<a class="button_aRight" id="button_aRight_fb">
+					<span>
+						<?php 
+							if($lang == "uk"){
+								echo "Сторінка GOLUBIKA у Facebook";
+							}else{
+								echo "FB.com/golubika.forbeloved";
+							} 
+						?>
+					</span>
+				</a>
 				<a href="https://www.facebook.com/golubika.forbeloved/" class="button_bRight slidebttn_fb" id="button_bRight_fb"><i class="fa fa-facebook icons_opacity" aria-hidden="true"></i></a>
 			</div>
 		</div>
 
 		<div class="ig">
 			<div class="button_wrap">
-				<a class="button_aRight" id="button_aRight_ig"><span>Світлини GOLUBIKA в Instagram </span></a>
+				<a class="button_aRight" id="button_aRight_ig">
+					<span> 
+						<?php 
+							if($lang == "uk"){
+								echo "Світлини GOLUBIKA в Instagram";
+							}else{
+								echo "@golubika.forbeloved";
+							} 
+						?>
+					</span>
+				</a>
 				<a href="https://www.instagram.com/golubika.forbeloved/" class="button_bRight slidebttn_ig" id="button_bRight_ig"><i class="fa fa-instagram icons_opacity" aria-hidden="true"></i></a>
 			</div>
 		</div>		
 
-		<div class="callback" data-toggle="tooltip" data-placement="left" title="Натисніть щоб замовити зворотній дзвінок!">
+		<div class="callback" 
+				 data-toggle="tooltip" 
+				 data-placement="left" 
+				 title="
+				 		<?php 
+							if($lang == "uk"){
+								echo "Натисніть щоб замовити зворотній дзвінок!";
+							}else{
+								echo "Click to call back!";
+							} 
+						?>
+				 ">
 			<div class="button_wrap_callback">
 				<div class="button_callback" data-toggle="modal" data-target=".callback_form"><i class="fa fa-phone" aria-hidden="true"></i></div>
 			</div>
