@@ -12,23 +12,37 @@ $(function(){
 	});
 
 	/* Удаляет анимацию при hover на меню в моб. версии */
-  $(window).resize(function(){
+  $(window).width(function(){
 	 if($(window).width()<768){
 	    $(".nav-link").removeClass("hvr-underline-from-center");
 	 }
 	});
 
-    /* Анимация hamburger в моб. версии */
-   $(".navbar-toggler").click(function(){
-    $(".main_nav").toggleClass("main_nav_mob");
-	  if($(this).hasClass("collapsed")){
-	    $(this).removeClass("collapsed");
-	  }else{
-	    $(this).addClass("collapsed");
-	  }
-	 })
-   
-   /* Анимация кнопок соц. сетей */
+    /* Анимация hamburger в моб. версии и запрет скролла при открытом моб.меню*/
+    var toggler = document.querySelector(".navbar-toggler");
+	 var mainNav = document.querySelector(".main_nav");
+	 $(toggler).click(function(){
+	 	 $(mainNav).toggleClass("main_nav_mob");
+	 	 	if($(this).hasClass("collapsed") && !$("body").hasClass("overflowHidden")){
+	 	 		$(this).removeClass("collapsed");
+	 	 		$("body").addClass("overflowHidden");
+	 	 		$(".logo_nav path").css("fill", "#FEFCFF");
+		    $(".navbar-toggler span").css("background-color", "#FEFCFF");
+		  }else{
+	 	 		$(this).addClass("collapsed");
+	 	 		$(".logo_nav path").css("fill", "#0C090A");
+		    $(".navbar-toggler span").css("background-color", "#0C090A");
+		    $("body").removeClass("overflowHidden");
+	 	 	}
+	 });
+	 
+	$(window).on("scroll", function(){
+	 if($(toggler).hasClass("collapsed")){
+	 		$("body").removeClass("overflowHidden");
+	 	}
+	});
+  
+  /* Анимация кнопок соц. сетей */
 	$(".slidebttn_fb").hover(
 		function(){
 			var $this 		= $(this);
@@ -64,7 +78,7 @@ $(function(){
 	);
 
 					
-	/* Активация Tooltip Bootstrap (для кнопки callback)*/
+		/* Активация Tooltip Bootstrap (для кнопки callback)*/
     $('[data-toggle="tooltip"]').tooltip();    
 
     /* Анимация main_nav*/
@@ -97,7 +111,7 @@ $(function(){
     });
 
 
-    /*АНИМАЦИЯ DROPDOWN. Не работает свертывание. проработать*/
+   /*Dropdown animation*/
     $(".dropdown").mouseenter(function(){
     	$(".dropdown-menu").addClass("zoomIn");
     	if($(".dropdown-menu").hasClass("zoomOut")){
@@ -141,16 +155,18 @@ $(function(){
 	});
 
 
-	/* -------- Перенос названия и цены заказываемого товара в нередактируемые inputs формы --------- */
+	/* Автоматический перенос названия и цены заказываемого товара в нередактируемые inputs формы */
 	$(".buy_button").click(function(){
 		var x = $(this).parent().parent(); // родительский элемент 2-го уровня
 		var prod_name = x.find("div.prod_name").html(); 
 		var prod_descr = x.find("div.prod_descr").html();
-		var input_value = $("#order_product").val(prod_name); // назв. товара в input
-		var input_value = $("#order_product_descr").val(prod_descr);
+		var ch_prodName = $("#order_product").val(prod_name); // назв. товара в input
+		var ch_prodDescr = $("#order_product_descr").val(prod_descr);
 
-		var good_price = x.find(".prod_currentprice>span, .prod_newprice>span").html(); //	ищем цену товара
-		$("#order_price").val(good_price); //вставляем цену в нередактируемый input формы
+		/*var good_price = x.find(".prod_currentprice>span, .prod_newprice>span").html();*/ //	ищем цену товара
+		var good_price = x.find(".prod_currentprice>span, .prod_newprice>span").html();
+		console.log(good_price);
+		$("#order_price").val(good_price);
 	});
 
 

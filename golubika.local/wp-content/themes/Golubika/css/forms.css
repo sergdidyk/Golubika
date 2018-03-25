@@ -1,0 +1,50 @@
+
+
+
+/* 
+=============СТИЛИ ФОРМ И МОДАЛЬНОГО ОКНА==========
+ */
+.close:focus{
+  outline: none !important;
+}
+
+.send_form:hover, .close_form:hover{
+  cursor: pointer;
+}
+
+.send_form{
+  color: #FFFFFF;
+  background-color: #385A76;
+}
+
+.input-group{
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.input_colored{
+  color: rgb(56,90,118);
+}
+
+.input_colored, #order_product, #order_price{
+  background-color: white;
+}
+
+#order_comment, #custom_comment{
+  resize: none;
+}
+
+/* FIX of the problem with body shifting left when modal opened */ 
+.modal-open .modal {
+  overflow: hidden !important;
+}
+
+.modal-open{
+    overflow: visible;
+}
+
+.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom{
+    padding-right:0px!important;
+}
+
+/* --------------------------------*/

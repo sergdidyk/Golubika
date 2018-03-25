@@ -3,11 +3,31 @@
 	use Carbon_Fields\Container;
 	use Carbon_Fields\Field;
 
-	  /* CUSTOM FIELDS FOR NEW COLLECTION*/
-  Container::make( 'post_meta', 'Добавление товара категорию НОВА КОЛЕКЦІЯ. Украинская версия.' )
-        ->where( 'post_term', '=', array(
+	/* CUSTOM FIELDS FOR catalog, Ukrainian version (all except of SALE category)*/
+  Container::make( 'post_meta', 'Добавление товара в категорию каталога. Украинская версия.' )
+        ->or_where( 'post_term', '=', array(
                    'field' => 'id',
                    'value' => 73,
+                   'taxonomy' => 'category',
+                ) )
+         ->or_where( 'post_term', '=', array(
+                   'field' => 'id',
+                   'value' => 80,
+                   'taxonomy' => 'category',
+                ) )
+         ->or_where( 'post_term', '=', array(
+                   'field' => 'id',
+                   'value' => 89,
+                   'taxonomy' => 'category',
+                ) )
+         ->or_where( 'post_term', '=', array(
+                   'field' => 'id',
+                   'value' => 93,
+                   'taxonomy' => 'category',
+                ) )
+         ->or_where( 'post_term', '=', array(
+                   'field' => 'id',
+                   'value' => 101,
                    'taxonomy' => 'category',
                 ) )
         ->add_tab( 'Информация о товаре', array(
@@ -49,11 +69,33 @@
                 ->set_width( 33 )  
                 ->set_help_text( 'Необязательное фото.<br>Добавится в карусель.' )
         ) );
+  /*-------------------------------------------------------------------------------*/
 
-    Container::make( 'post_meta', 'Add your product to NEW COLLECTION category. English version.' )
-        ->where( 'post_term', '=', array(
+  /* CUSTOM FIELDS FOR catalog, English version (all except of SALE category)*/
+    Container::make( 'post_meta', 'Add your product to category of catalog. English version.' )
+        ->or_where( 'post_term', '=', array(
                    'field' => 'id',
                    'value' => 75,
+                   'taxonomy' => 'category',
+                ) )
+        ->or_where( 'post_term', '=', array(
+                   'field' => 'id',
+                   'value' => 82,
+                   'taxonomy' => 'category',
+                ) )
+        ->or_where( 'post_term', '=', array(
+                   'field' => 'id',
+                   'value' => 91,
+                   'taxonomy' => 'category',
+                ) )
+        ->or_where( 'post_term', '=', array(
+                   'field' => 'id',
+                   'value' => 95,
+                   'taxonomy' => 'category',
+                ) )
+        ->or_where( 'post_term', '=', array(
+                   'field' => 'id',
+                   'value' => 103,
                    'taxonomy' => 'category',
                 ) )
         ->add_tab( 'Product information', array(
@@ -100,7 +142,7 @@
 
 
   /* CUSTOM FIELDS FOR BAGS*/
-  Container::make( 'post_meta', 'Добавление товара в категорию СУМКИ. Украинская версия.' )
+ /* Container::make( 'post_meta', 'Добавление товара в категорию СУМКИ. Украинская версия.' )
         ->where( 'post_term', '=', array(
                    'field' => 'id',
                    'value' => 80,
@@ -145,8 +187,8 @@
                 ->set_width( 33 )  
                 ->set_help_text( 'Необязательное фото.<br>Добавится в карусель.' )
         ) );
-
-    Container::make( 'post_meta', 'Add your product to BAGS category. English version.' )
+*/
+ /* Container::make( 'post_meta', 'Add your product to BAGS category. English version.' )
         ->where( 'post_term', '=', array(
                    'field' => 'id',
                    'value' => 82,
@@ -158,8 +200,7 @@
                    ->set_required( true )
                    ->set_width( 40 ),
             Field::make( 'text', 'crb_good_descr', 'Product description' )
-                   ->set_help_text( 'For exapmle: <i>orange colored with tree stamping
-2 sections inside, magnet clasp</i>' )
+                   ->set_help_text( 'For exapmle: <i>orange colored with tree stamping 2 sections inside, magnet clasp</i>' )
                    ->set_required( true )
                    ->set_width( 60 ),
             Field::make( 'select', 'crb_order_availability', 'Select your product availability' )
@@ -191,11 +232,11 @@
                 ->set_value_type( 'url' )
                 ->set_width( 33 )  
                 ->set_help_text( 'This photo is not obligatory.<br>It could be shown in <br>the modal window only.' )
-    ));
+    ));*/
   /*-------------------------------*/
 
    /* CUSTOM FIELDS FOR BIG ACCESSORIES*/
-  Container::make( 'post_meta', 'Добавление товара в категорию АКСЕССУАРЫ (большие фото). Украинская версия.' )
+/*  Container::make( 'post_meta', 'Добавление товара в категорию АКСЕССУАРЫ (большие фото). Украинская версия.' )
         ->where( 'post_term', '=', array(
                    'field' => 'id',
                    'value' => 89,
@@ -240,8 +281,8 @@
                 ->set_width( 33 )  
                 ->set_help_text( 'Необязательное фото.<br>Добавится в карусель.' )
         ) );
-
-    Container::make( 'post_meta', 'Add your product to ACCESSORIES category (big photos). English version.' )
+*/
+  /*  Container::make( 'post_meta', 'Add your product to ACCESSORIES category (big photos). English version.' )
         ->where( 'post_term', '=', array(
                    'field' => 'id',
                    'value' => 91,
@@ -285,11 +326,11 @@
                 ->set_value_type( 'url' )
                 ->set_width( 33 )  
                 ->set_help_text( 'This photo is not obligatory.<br>It could be shown in <br>the modal window only.' )
-    ));
+    ));*/
   /*-------------------------------*/
 
   /* CUSTOM FIELDS FOR SMALL ACCESSORIES*/
-  Container::make( 'post_meta', 'Добавление товара в категорию АКСЕССУАРЫ (маленькие фото). Украинская версия.' )
+/*  Container::make( 'post_meta', 'Добавление товара в категорию АКСЕССУАРЫ (маленькие фото). Украинская версия.' )
         ->where( 'post_term', '=', array(
                    'field' => 'id',
                    'value' => 93,
@@ -334,8 +375,8 @@
                 ->set_width( 33 )  
                 ->set_help_text( 'Необязательное фото.<br>Добавится в карусель.' )
         ) );
-
-    Container::make( 'post_meta', 'Add your product to ACCESSORIES category (small photos). English version.' )
+*/
+ /*   Container::make( 'post_meta', 'Add your product to ACCESSORIES category (small photos). English version.' )
         ->where( 'post_term', '=', array(
                    'field' => 'id',
                    'value' => 95,
@@ -379,12 +420,12 @@
                 ->set_value_type( 'url' )
                 ->set_width( 33 )  
                 ->set_help_text( 'This photo is not obligatory.<br>It could be shown in <br>the modal window only.' )
-    ));
+    ));*/
   /*-------------------------------*/
 
 
   /* CUSTOM FIELDS FOR "FOR MEN" SECTION*/
-    Container::make( 'post_meta', 'Добавление товара в категорию ДЛЯ ЧОЛОВІКІВ. Украинская версия.' )
+ /*   Container::make( 'post_meta', 'Добавление товара в категорию ДЛЯ ЧОЛОВІКІВ. Украинская версия.' )
         ->where( 'post_term', '=', array(
                    'field' => 'id',
                    'value' => 101,
@@ -428,9 +469,9 @@
                 ->set_value_type( 'url' )
                 ->set_width( 33 )  
                 ->set_help_text( 'Необязательное фото.<br>Добавится в карусель.' )
-        ) );
+        ) );*/
 
-    Container::make( 'post_meta', 'Add your product to FOR MEN category (small photos). English version.' )
+   /* Container::make( 'post_meta', 'Add your product to FOR MEN category (small photos). English version.' )
         ->where( 'post_term', '=', array(
                    'field' => 'id',
                    'value' => 103,
@@ -474,12 +515,12 @@
                 ->set_value_type( 'url' )
                 ->set_width( 33 )  
                 ->set_help_text( 'This photo is not obligatory.<br>It could be shown in <br>the modal window only.' )
-    ));
+    ));*/
   /*------------------------------------*/
 
 
   /* CUSTOM FIELDS FOR "SALE" SECTION*/
-   Container::make( 'post_meta', 'Добавление товара в категорию РОЗПРОДАЖ. Украинская версия.' )
+   Container::make( 'post_meta', 'Добавление товара в категорию каталога РОЗПРОДАЖ. Украинская версия.' )
         ->where( 'post_term', '=', array(
                    'field' => 'id',
                    'value' => 107,
@@ -541,8 +582,7 @@
                    ->set_required( true )
                    ->set_width( 40 ),
             Field::make( 'text', 'crb_good_descr', 'Product description' )
-                   ->set_help_text( 'For exapmle: <i>orange colored with tree stamping
-2 sections inside, magnet clasp</i>' )
+                   ->set_help_text( 'For exapmle: <i>orange colored with tree stamping 2 sections inside, magnet clasp</i>' )
                    ->set_required( true )
                    ->set_width( 60 ),
             Field::make( 'select', 'crb_order_availability', 'Select your product availability' )

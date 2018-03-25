@@ -20,9 +20,10 @@
 	
 		add_action( 'carbon_fields_register_fields', 'crb_register_custom_fields' );
 			function crb_register_custom_fields() {
-				// путь к пользовательскому файлу определения поля (полей), измените под себя
+				// путь к пользовательскому файлу определения полей
 				require_once __DIR__ . '/inc/custom_fields/post-meta.php';
 				require_once __DIR__ . '/inc/custom_fields/menu.php';
+				require_once __DIR__ . '/inc/custom_fields/theme-options.php';
 			}
 			
 
@@ -73,8 +74,10 @@
 	**/
 	add_theme_support('post-thumbnails');
 
+
 	
 
+	
 
 
 	

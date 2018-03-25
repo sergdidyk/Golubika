@@ -1,4 +1,7 @@
-
+	<?php 
+		global $lang;
+		$lang = pll_current_language();
+	?>
 	<footer>
 		<div class="container-fluid footer_container" id="cont">
 			<div class="row align-items-center">
@@ -16,22 +19,26 @@
 						<ul>
 							<li>
 								<i class="fa fa-phone" aria-hidden="true"></i>
-								<span id="phone_number">+38 097 227 93 43</span>
+								<span id="phone_number">
+									<?php echo carbon_get_theme_option( 'crb_phone' ); ?>
+								</span>
 							</li>
 							<li>
 								<i class="fa fa-envelope" aria-hidden="true"></i>
-								<span>golubika.forbeloved@gmail.com</span>
+								<span>
+									<?php echo carbon_get_theme_option( 'crb_email' ); ?>
+								</span>
 							</li>
 						</ul>
 					</div>
 				
 					<div class="footer_nav col-lg-4 col-md-12 col-sm-12 col-xs-12">
-						<span class="footer_navitem"><a href="#cat">каталог</a></span>
-						<span class="footer_navitem"><a href="#ord">як замовити</a></span>
-						<span class="footer_navitem"><a href="#cust" data-ps2id-offset="90">індивідуальні замовлення</a></span>
-						<span class="footer_navitem"><a href="#abus" data-ps2id-offset="-150">про нас</a></span>
-						<span class="footer_navitem"><a href="#ourstor">наші історії</a></span>
-						<span class="footer_navitem"><a href="#cont">контакти</a></span>
+						<span class="footer_navitem"><a href="#cat"><?php showCategoryName(129, 131, $lang) ?></a></span>
+						<span class="footer_navitem"><a href="#ord"><?php showCategoryName(110, 112, $lang) ?></a></span>
+						<span class="footer_navitem"><a href="#cust" data-ps2id-offset="90"><?php showSinglePostTitle(266, 268, $lang) ?></a></span>
+						<span class="footer_navitem"><a href="#abus" data-ps2id-offset="-150"><?php showSinglePostTitle(274, 276, $lang) ?></a></span>
+						<span class="footer_navitem"><a href="#ourstor"><?php showCategoryName(4, 45, $lang); ?></a></span>
+						<span class="footer_navitem"><a href="#cont"><?php if($lang == "uk"){echo "Контакти";}else{echo "Contacts";} ?></a></span>
 					</div>
 				</div>
 				
@@ -64,8 +71,8 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/libs/animate/animate-css.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/libs/owl/owl.carousel.min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/libs/jquery_validate/jquery.validate.min.js"></script>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/common.js"></script>
-	
+	<?php wp_enqueue_script('myscript', get_template_directory_uri() . '/js/common.js'); 
+				add_action( 'wp_enqueue_scripts', 'true_include_myscript' ); ?>
 	<?php wp_footer(); ?> 
 
 	<!-- Google Analytics counter --><!-- /Google Analytics counter -->

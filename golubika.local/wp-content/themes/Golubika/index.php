@@ -152,9 +152,7 @@
 		<div class="stories" id="ourstor">
 			<div class="stories_headline">
 				<span class="stories_headtext">
-					<?php 
-						showCategoryName(4, 45, $lang);
-					?>
+					<?php showCategoryName(4, 45, $lang); ?>
 				</span>
 			</div>
 			<div class="container-fluid stories_container">

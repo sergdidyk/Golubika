@@ -101,12 +101,7 @@
 											?>
 									</div>
 									<div class="prod_currentprice">
-										<span>
-											<?php
-												$numPrice = carbon_get_the_post_meta('crb_good_price'); 
-												showProductPrice($numPrice, $lang);
-											?>
-										</span>
+										<span><?php $numPrice = carbon_get_the_post_meta('crb_good_price'); showProductPrice($numPrice, $lang);?></span>
 									</div>	
 								</div>
 						</div>
@@ -168,12 +163,7 @@
 										?>
 									</div>
 									<div class="prod_currentprice">
-										<span>
-											<?php
-												$numPrice = carbon_get_the_post_meta('crb_good_price'); 
-												showProductPrice($numPrice, $lang);
-											?>
-										</span>
+										<span><?php $numPrice = carbon_get_the_post_meta('crb_good_price'); showProductPrice($numPrice, $lang);?></span>
 									</div>	
 								</div>
 						</div>
@@ -235,12 +225,7 @@
 										?>
 									</div>
 									<div class="prod_currentprice">
-										<span>
-											<?php
-												$numPrice = carbon_get_the_post_meta('crb_good_price'); 
-												showProductPrice($numPrice, $lang); 
-											?>
-										</span>
+										<span><?php $numPrice = carbon_get_the_post_meta('crb_good_price'); showProductPrice($numPrice, $lang);?></span>
 									</div>	
 								</div>
 						</div>
@@ -294,10 +279,7 @@
 									</div>
 									<div class="prod_currentprice">
 										<span>
-											<?php
-												$numPrice = carbon_get_the_post_meta('crb_good_price'); 
-												showProductPrice($numPrice, $lang);
-											?>
+											<span><?php $numPrice = carbon_get_the_post_meta('crb_good_price'); showProductPrice($numPrice, $lang);?></span>
 										</span>
 									</div>	
 								</div>
@@ -353,12 +335,7 @@
 																								selectProductAvailability($avl, $lang);?>
 								</div>
 								<div class="prod_currentprice">
-									<span>
-										<?php
-											$numPrice = carbon_get_the_post_meta('crb_good_price'); 
-											showProductPrice($numPrice, $lang);
-										?>
-									</span>
+									<span><?php $numPrice = carbon_get_the_post_meta('crb_good_price'); showProductPrice($numPrice, $lang);?></span>
 								</div>	
 							</div>
 						</div>
@@ -412,20 +389,10 @@
 								<div class="container_fluid">
 									<div class="row">
 										<div class="prod_oldprice col-6">
-											<span>
-												<?php
-													$numPrice = carbon_get_the_post_meta('crb_good_price'); 
-													showProductPrice($numPrice, $lang);
-												?>
-											</span>
+											<span><?php $numPrice = carbon_get_the_post_meta('crb_good_price'); showProductPrice($numPrice, $lang);?></span>
 									  </div>	
 										<div class="prod_newprice col-6">
-											<span>
-												<?php
-													$numOldPrice = carbon_get_the_post_meta('crb_good_old_price'); 
-													showProductPrice($numOldPrice, $lang);
-												?>
-											</span>
+											<span><?php $numOldPrice = carbon_get_the_post_meta('crb_good_old_price'); showProductPrice($numOldPrice, $lang);?></span>
 										</div>	
 									</div>	
 								</div>
