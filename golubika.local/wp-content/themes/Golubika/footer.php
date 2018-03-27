@@ -2,6 +2,7 @@
 		global $lang;
 		$lang = pll_current_language();
 	?>
+	
 	<footer>
 		<div class="container-fluid footer_container" id="cont">
 			<div class="row align-items-center">

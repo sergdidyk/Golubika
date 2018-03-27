@@ -1,4 +1,5 @@
-<form action="#" method="#" class="callback_form modal fade" tabindex="-1" role="dialog" aria-labelledby="orderForm" aria-hidden="true">
+	<!-- Callback form -->
+	<form method="#" class="callback_form modal fade" id="callback" tabindex="-1" role="dialog" aria-labelledby="orderForm" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -23,12 +24,14 @@
 				</div>
 	      <div class="modal-footer">
 	        <button type="button" class="close_form btn btn-secondary" data-dismiss="modal">Закрити</button>
-	        <button type="submit" value="Submit" class="send_form btn">Зателефонуйте мені</button>
+	        <button type="submit" value="Submit" class="send_form btn" id="callback_btn">Зателефонуйте мені</button>
 		    </div>
 			</div>
 		</div>
 	</form>
+	
 
+	<!-- Order form -->
 	<form action="#" method="#" class="order_form modal fade" tabindex="-1" role="dialog" aria-labelledby="orderForm" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -84,6 +87,8 @@
 		</div>
 	</form>
 	
+
+	<!-- Individual order form -->
 	<form action="#" method="#" class="modal fade customorder_form" tabindex="-1" role="dialog" aria-labelledby="customOrderForm" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 	    <div class="modal-content">

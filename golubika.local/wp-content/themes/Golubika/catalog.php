@@ -1,56 +1,8 @@
 		
 		<?php 
 			global $lang;
-			$lang = pll_current_language();
-
-			function selectProductAvailability($avl, $lang){
-				if( $avl === false  ){
-					if($lang == "uk"){
-							    $text = 'Поле не вибрано';
-						}else{$text = 'Field is not specified';}	
-				}
-				if( $avl == 'available' ){
-					if($lang == "uk"){
-						    $text = 'В наявності';
-					}else{$text = 'Available';}	
-				}
-				if( $avl == 'not_available' ){
-					if($lang == "uk"){
-						    $text = 'Немає в наявності';
-					}else{$text = 'Not available';}	
-				}
-				if( $avl == 'pre_order' ){
-					if($lang == "uk"){
-						    $text = 'Доступний за передзамовленням';
-					}else{$text = 'Available for pre-order';}	
-				}
-				echo $text;
-			}
-
-			function showProductPhoto($main_photo, $second_photo, $third_photo){
-				echo $main_photo;
-				if($second_photo){echo ','.$second_photo;};
-				if($third_photo){echo ','.$third_photo;};	
-			}
-
-			function showProductPrice($numPrice, $lang){
-				echo $numPrice;
-				if ($lang == "uk"){echo " грн";
-				}else{echo " &euro;";} 
-			}
-
-			function showOldPrice($numOldPrice, $lang){
-				echo $numOldPrice;
-				if ($lang == "uk"){echo " грн";
-				}else{echo " &euro;";} 
-			}
-
-			function showOrderBtnText($lang){
-				if ($lang == "uk"){echo "замовити";
-				}else{echo "order now";}
-			}
+			$lang = pll_current_language();	
 		?>
-
 
 		<!-- CATALOG -->
 
@@ -67,12 +19,12 @@
 
 				<div class="novelty container-fluid">
 					<div class="row">
-					<?php 
+						<?php 
 						//post duplicate prevention
 						$query = new WP_Query(array( 'cat' => '-1,-125,-4,-45,-80,-82,-89,-91,-93,-95,-101,-103,-107,-109,-110,-112' ));
 						if( $query->have_posts() ){
 								while( $query->have_posts() ){ $query->the_post();
-					?>
+						?>
 						<!-- post -->			
 						<div class="good_item col-lg-3 col-sm-6 col-xs-12">
 								<div class="image_container">

@@ -1,5 +1,8 @@
 <?php 
 
+	global $lang;
+	$lang = pll_current_language(); //define current language
+
 	/**
 	* Удаление default админпанели и стилей 
 	**/
@@ -70,14 +73,91 @@
 	add_action( 'widgets_init', 'logo_footer_widget_init' );
 
 	/**
-	* поддержка миниатюр для постов
+	* Add support of post thumbnails
 	**/
 	add_theme_support('post-thumbnails');
 
+	/*Custom functions*/	
+	function showCategoryName($id_ua, $id_en, $lang){
+			if($lang == "uk"){
+				echo get_cat_name($id_ua);
+			}else{
+				echo get_cat_name($id_en);
+			} 
+		}
 
-	
+	function showSinglePostTitle($id_ua, $id_en, $lang){
+		if($lang == "uk"){
+			echo get_the_title($id_ua);
+		}else{
+			echo get_the_title($id_en);
+		} 
+	}
 
-	
+	function showSinglePostContent($id_ua, $id_en, $lang){
+		if($lang == "uk"){
+			$my_post_obj = get_post($id_ua);
+		}else{
+			$my_post_obj = get_post($id_en);
+		} 
+		$the_content_filtered = apply_filters( 'the_content', $my_post_obj->post_content );
+		echo str_replace( ']]>', ']]&gt;', $the_content_filtered );
+	}
+
+	function showSinglePostImage($id_ua, $id_en, $lang){
+		if($lang == "uk"){
+			echo get_the_post_thumbnail_url($id_ua);
+		}else{
+			echo get_the_post_thumbnail_url($id_en);
+		} 
+	}
+
+	function selectProductAvailability($avl, $lang){
+		if( $avl === false  ){
+			if($lang == "uk"){
+					    $text = 'Поле не вибрано';
+				}else{$text = 'Field is not specified';}	
+		}
+		if( $avl == 'available' ){
+			if($lang == "uk"){
+				    $text = 'В наявності';
+			}else{$text = 'Available';}	
+		}
+		if( $avl == 'not_available' ){
+			if($lang == "uk"){
+				    $text = 'Немає в наявності';
+			}else{$text = 'Not available';}	
+		}
+		if( $avl == 'pre_order' ){
+			if($lang == "uk"){
+				    $text = 'Доступний за передзамовленням';
+			}else{$text = 'Available for pre-order';}	
+		}
+		echo $text;
+	}
+
+	function showProductPhoto($main_photo, $second_photo, $third_photo){
+		echo $main_photo;
+		if($second_photo){echo ','.$second_photo;};
+		if($third_photo){echo ','.$third_photo;};	
+	}
+
+	function showProductPrice($numPrice, $lang){
+		echo $numPrice;
+		if ($lang == "uk"){echo " грн";
+		}else{echo " &euro;";} 
+	}
+
+	function showOldPrice($numOldPrice, $lang){
+		echo $numOldPrice;
+		if ($lang == "uk"){echo " грн";
+		}else{echo " &euro;";} 
+	}
+
+	function showOrderBtnText($lang){
+		if ($lang == "uk"){echo "замовити";
+		}else{echo "order now";}
+	}
 
 
 	

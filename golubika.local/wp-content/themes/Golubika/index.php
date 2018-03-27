@@ -1,49 +1,12 @@
 	
 	<?php 
-		get_header(); 	 
-		
+		get_header(); 
 		global $lang;
-		$lang = pll_current_language(); //define current language
-
-		function showCategoryName($id_ua, $id_en, $lang){
-			if($lang == "uk"){
-				echo get_cat_name($id_ua);
-			}else{
-				echo get_cat_name($id_en);
-			} 
-		}
-
-		function showSinglePostTitle($id_ua, $id_en, $lang){
-			if($lang == "uk"){
-				echo get_the_title($id_ua);
-			}else{
-				echo get_the_title($id_en);
-			} 
-		}
-
-		function showSinglePostContent($id_ua, $id_en, $lang){
-			if($lang == "uk"){
-				$my_post_obj = get_post($id_ua);
-			}else{
-				$my_post_obj = get_post($id_en);
-			} 
-			$the_content_filtered = apply_filters( 'the_content', $my_post_obj->post_content );
-			echo str_replace( ']]>', ']]&gt;', $the_content_filtered );
-		}
-
-		function showSinglePostImage($id_ua, $id_en, $lang){
-			if($lang == "uk"){
-				echo get_the_post_thumbnail_url($id_ua);
-			}else{
-				echo get_the_post_thumbnail_url($id_en);
-			} 
-		}
+		$lang = pll_current_language();	
 	?>
 
 	<section>
-
 		<?php get_template_part('catalog'); ?>
-
 
 		<div class="order">
 			<div class="order_headline" id="ord">

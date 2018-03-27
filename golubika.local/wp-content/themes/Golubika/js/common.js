@@ -1,8 +1,8 @@
 $(function(){
-	
+	/*Remove fade out effect when window is loaded*/
   $('body').removeClass('fade-out');
 
-	/* Высота header по высоте экрана и авторазмер рисунка под размер устройства */
+	/* Always adjust header height to window height and picture autosize to device screen size */
 	function heightDetect(){
 		$(".main_head").css("height", $(window).height());
 	}
@@ -11,14 +11,14 @@ $(function(){
 		heightDetect();
 	});
 
-	/* Удаляет анимацию при hover на меню в моб. версии */
+	/* Remove animation on hover at mobile version */
   $(window).width(function(){
 	 if($(window).width()<768){
 	    $(".nav-link").removeClass("hvr-underline-from-center");
 	 }
 	});
 
-    /* Анимация hamburger в моб. версии и запрет скролла при открытом моб.меню*/
+    /* Hamburger menu animation and support functions*/
     var toggler = document.querySelector(".navbar-toggler");
 	 var mainNav = document.querySelector(".main_nav");
 	 $(toggler).click(function(){
@@ -35,18 +35,18 @@ $(function(){
 		    $("body").removeClass("overflowHidden");
 	 	 	}
 	 });
-
+	/* Prevent background color change when nav is on top*/
 	 $(".nav-item, .dropdown-item").click(function(){
 		$(mainNav).removeClass("main_nav_mob");
 	});
-	 
+	/* Prevent scroll when modal is opened*/
 	$(window).on("scroll", function(){
 	 if($(toggler).hasClass("collapsed")){
 	 		$("body").removeClass("overflowHidden");
 	 	}
 	});
   
-  /* Анимация кнопок соц. сетей */
+  /* Social media buttons animation */
 	$(".slidebttn_fb").hover(
 		function(){
 			var $this 		= $(this);
@@ -82,10 +82,10 @@ $(function(){
 	);
 
 					
-		/* Активация Tooltip Bootstrap (для кнопки callback)*/
+		/* Tooltip Bootstrap activation (for callback button)*/
     $('[data-toggle="tooltip"]').tooltip();    
 
-    /* Анимация main_nav*/
+    /* main_nav onscroll animation*/
     $(window).on("scroll", function(){
     	if($(this).scrollTop()>100){
     		$(".navbar").removeClass("main.nav").addClass("main_nav_small");
@@ -98,9 +98,10 @@ $(function(){
     	}
     });
 
-    /* Закрытие меню при клике на ссылку в мобильной версии 
-       dropdown на каталоге открываться не будет. n+2 - чтобы исключить из списка
-       языковой dropdown. На языковом - меню закрывается при клике на язык*/
+    /* Close menu on click of link in mobile version. 
+    * n+2 in order to except language dropdown from list
+    * When language clicked menu is closing.
+    */
     $(".nav-item:nth-last-child(n+2)").click(function(){
     	if($(window).width()<768){
     		function nav_change(){
@@ -116,13 +117,12 @@ $(function(){
 
 
    /*Dropdown animation*/
-    $(".dropdown").mouseenter(function(){
-    	$(".dropdown-menu").addClass("zoomIn");
-    	if($(".dropdown-menu").hasClass("zoomOut")){
-    		$(".dropdown-menu").removeClass("zoomOut");
-    	}
-    });
-
+  $(".dropdown").mouseenter(function(){
+  	$(".dropdown-menu").addClass("zoomIn");
+  	if($(".dropdown-menu").hasClass("zoomOut")){
+  		$(".dropdown-menu").removeClass("zoomOut");
+  	}
+  });
 	$(".dropdown").mouseleave(function(){
 			$(".dropdown-menu").addClass("zoomOut");
     	if($(".dropdown-menu").hasClass("zoomIn")){
@@ -134,8 +134,7 @@ $(function(){
 	$(".main_nav a, .top_link, .footer_nav a").mPageScroll2id();
 
 
-	/* Анимация товаров, галерея Magnific Popup*/
-
+	/* Products animation, Magnific Popup gallery*/
 	$('.magnific_gallery').each(function(index , value){
   var gallery = $(this);
   var galleryImages = $(this).data('links').split(',');
@@ -159,22 +158,34 @@ $(function(){
 	});
 
 
-	/* Автоматический перенос названия и цены заказываемого товара в нередактируемые inputs формы */
+	/* Ordered product name and price to readonly order form inputs */
 	$(".buy_button").click(function(){
-		var x = $(this).parent().parent(); // родительский элемент 2-го уровня
+		var x = $(this).parent().parent(); // parent element of 2nd level
 		var prod_name = x.find("div.prod_name").html(); 
 		var prod_descr = x.find("div.prod_descr").html();
-		var ch_prodName = $("#order_product").val(prod_name); // назв. товара в input
+		var ch_prodName = $("#order_product").val(prod_name); // product name to input
 		var ch_prodDescr = $("#order_product_descr").val(prod_descr);
-
-		/*var good_price = x.find(".prod_currentprice>span, .prod_newprice>span").html();*/ //	ищем цену товара
-		var good_price = x.find(".prod_currentprice>span, .prod_newprice>span").html();
-		console.log(good_price);
+		var good_price = x.find(".prod_currentprice>span, .prod_newprice>span").html(); //find product price
 		$("#order_price").val(good_price);
 	});
 
+	/* STORIES SLIDER OWL carousel*/
+	$(".stories_slider").owlCarousel({
+ 
+      nav: true, // показывать кнопки next и prev 
+ 			loop: true,
+ 			center: true,
+ 			smartSpeed: 500,
+      items : 1,
+      navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"]
+ 
+  });
 
-	/* -------- FORMS VALIDATION --------- */
+	/* Date at footer */
+	var y = new Date();
+	document.getElementById("full_year").innerHTML = " " + y.getFullYear() + " ";
+
+		/* -------- FORMS VALIDATION (Jquery validate plugin)--------- */
 	jQuery.validator.addMethod("phonenumber", function(phone_number, element) {
 	    phone_number = phone_number.replace(/\s+/g, "");
 	    return this.optional(element) || phone_number.length > 9 && 
@@ -220,7 +231,6 @@ $(function(){
 			order_comment: {
 				maxlength: 200
 			}
-
 		}, 
 		messages: {
 			order_name: {
@@ -277,29 +287,11 @@ $(function(){
 			}
 		}
 	});
-
 	/* --------END OF FORMS VALIDATION ---------- */
 
+	var callback_btn = document.querySelector("#callback_btn");
 
-	/* STORIES SLIDER OWL carousel*/
-	$(".stories_slider").owlCarousel({
- 
-      nav: true, // показывать кнопки next и prev 
- 			loop: true,
- 			center: true,
- 			smartSpeed: 500,
-      items : 1,
-      navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"]
- 
-  });
-
-	/* Date at footer */
-	var y = new Date();
-	document.getElementById("full_year").innerHTML = " " + y.getFullYear() + " ";
-
-	/* Prevent scroll when modal is opened*/
-  
-
+	
 
 
 });
