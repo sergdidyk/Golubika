@@ -72,8 +72,19 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/libs/animate/animate-css.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/libs/owl/owl.carousel.min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/libs/jquery_validate/jquery.validate.min.js"></script>
-	<?php wp_enqueue_script('myscript', get_template_directory_uri() . '/js/common.js'); 
-				add_action( 'wp_enqueue_scripts', 'true_include_myscript' ); ?>
+	<?php wp_enqueue_script('myscript', get_template_directory_uri() . '/js/common.js');?>
+	<?php 
+		if($lang == "uk"){
+			wp_enqueue_script("myforms", get_template_directory_uri() . "/js/forms.js");
+			wp_deregister_script("myforms_en");
+			wp_dequeue_script( 'myforms_en' );
+		}else{
+			wp_enqueue_script("myforms_en", get_template_directory_uri() . "/js/forms_en.js");
+			wp_deregister_script("myforms");
+			wp_dequeue_script( 'myforms' );
+		}
+	?>
+
 	<?php wp_footer(); ?> 
 
 	<!-- Google Analytics counter --><!-- /Google Analytics counter -->

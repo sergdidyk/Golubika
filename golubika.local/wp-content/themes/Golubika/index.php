@@ -150,7 +150,13 @@
 
 
 	<!-- ***********ALL FORMS************ -->
-	<?php get_template_part('forms'); ?>
+	<?php
+		if($lang == "uk"){
+			get_template_part('forms');
+		}else{
+	 		get_template_part('forms_en'); 
+		} 
+	?>
 	<!-- ***********ALL FORMS************ -->
 
 	</section>
