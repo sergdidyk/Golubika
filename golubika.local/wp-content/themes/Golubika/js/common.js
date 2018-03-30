@@ -131,7 +131,7 @@ $(function(){
   });
   
 	/* --------- Scroll TO Id Plugin-------------*/
-	$(".main_nav a, .top_link, .footer_nav a").mPageScroll2id();
+	$(".main_nav a, .top_link, .footer_nav a, #back_to_top").mPageScroll2id();
 
 
 	/* Products animation, Magnific Popup gallery*/
@@ -157,6 +157,17 @@ $(function(){
     });
 	});
 
+	/* Products animation, Magnific Popup gallery*/
+	$(window).scroll(function(){
+		var height = $(window).scrollTop();
+		if(height>1200){
+			 $('#back_to_top').css("display", "inline-block");
+			 $('#back_to_top').addClass('animated rotateInUpRight');
+   }else{
+     	$('#back_to_top').fadeOut(1000);
+    	$('#back_to_top').removeClass('animated rotateInUpRight');
+    }
+	});
 
 	/* Ordered product name and price to readonly order form inputs */
 	$(".buy_button").click(function(){

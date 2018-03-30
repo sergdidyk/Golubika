@@ -25,8 +25,9 @@
 		?>
 </head>
 
-<body>
+<body id="body">
 	<script>document.body.className += ' fade-out';</script>
+	<a href="#body" id="back_to_top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
 	<header class="main_head" data-src="<?php echo get_template_directory_uri(); ?>/img/snapseed.jpg"  data-pos-x="left" data-parallax id="top">
 			
 	  <nav class="main_nav navbar fixed-top navbar-toggleable-sm">

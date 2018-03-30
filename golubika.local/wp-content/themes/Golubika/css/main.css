@@ -388,7 +388,7 @@ section, .main_head{
 /* КОНЕЦ КНОПОК СОЦСЕТЕЙ */
 
 
-/* КНОПКА CALLBACK */
+/* CALLBACK button */
 .callback{
   position: absolute;
   right: 0px;
@@ -458,7 +458,32 @@ section, .main_head{
   border: 1px solid #385A76;
   color: #4C4646;
 }
-/* КОНЕЦ КНОПКИ CALLBACK */
+/* ------------------- */
+
+/*Scroll-to-top button*/
+#back_to_top{
+  display: none;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 999;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: center;
+  font-size: 25px;
+  padding-right: 12px;
+  padding-left: 12px;
+  color: #FFFFFF;
+  background-color: rgba(56, 90, 118, 0.5);
+  border-radius: 2px;
+  transition: all 0.5s ease;
+  text-decoration: none;
+  outline: none;
+}
+
+#back_to_top:hover{
+  background-color: rgba(56, 90, 118, 0.8);
+}
 
 
 
