@@ -157,17 +157,22 @@ $(function(){
     });
 	});
 
-	/* Products animation, Magnific Popup gallery*/
+	/*Scroll-to-top button animation*/
 	$(window).scroll(function(){
 		var height = $(window).scrollTop();
-		if(height>1200){
+		var to_bottom = Math.floor($("html").height() - height);
+		
+		if(to_bottom<=700){
+			$('#back_to_top').fadeOut(500);
+		}else if(height>1200){
 			 $('#back_to_top').css("display", "inline-block");
 			 $('#back_to_top').addClass('animated rotateInUpRight');
-   }else{
+   	}else{
      	$('#back_to_top').fadeOut(1000);
     	$('#back_to_top').removeClass('animated rotateInUpRight');
     }
 	});
+
 
 	/* Ordered product name and price to readonly order form inputs */
 	$(".buy_button").click(function(){
@@ -183,7 +188,7 @@ $(function(){
 	/* STORIES SLIDER OWL carousel*/
 	$(".stories_slider").owlCarousel({
  
-      nav: true, // показывать кнопки next и prev 
+      nav: true, // show next and prev buttons 
  			loop: true,
  			center: true,
  			smartSpeed: 500,

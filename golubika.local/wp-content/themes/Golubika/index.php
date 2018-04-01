@@ -152,9 +152,9 @@
 	<!-- ***********ALL FORMS************ -->
 	<?php
 		if($lang == "uk"){
-			get_template_part('forms');
+			get_template_part('forms/forms');
 		}else{
-	 		get_template_part('forms_en'); 
+	 		get_template_part('forms/forms_en'); 
 		} 
 	?>
 	<!-- ***********ALL FORMS************ -->

@@ -102,4 +102,18 @@ $(function(){
 		}
 	});
 	/* --------END OF FORMS VALIDATION ---------- */
+
+
+	/*-------------FORMS SENDING------------------*/
+	//Callback form
+	
+
+	//Order form
+
+
+	//Individual order form
+
+	/*----------END OF FORMS SENDING--------------*/
+
+
 });
