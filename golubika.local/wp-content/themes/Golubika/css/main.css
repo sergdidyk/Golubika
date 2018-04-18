@@ -5,6 +5,8 @@ body {
   min-width: 320px;
   margin: 0;
   overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
   position: relative;
   line-height: 1.42857;
   -webkit-font-smoothing: antialised;
@@ -23,12 +25,6 @@ body {
 body.fade-out{
     opacity: 0;
     transition: none;
-}
-
-.main_head{
-  -webkit-box-shadow: 0px 3px 10px -1px rgba(97,109,126,0.9);
-  -moz-box-shadow: 0px 3px 10px -1px rgba(97,109,126,0.9);
-  box-shadow: 0px 3px 10px -1px rgba(97,109,126,0.9);
 }
 
 section{
@@ -58,7 +54,6 @@ section, .main_head{
 .main_nav_small, .main_nav_mob{
   top: 0px;
   background-color: rgba(56, 90, 118, 0.80);
-  *background-color: rgba(97, 109, 126, 0.65);
 }
 
 .navbar-brand svg{
@@ -153,7 +148,6 @@ section, .main_head{
 }
 
 /* АНИМАЦИЯ МЕНЮ НА ХОВЕР */
-
 .hvr-underline-from-center{
     display: inline-block;
     -webkit-transform: translateZ(0);

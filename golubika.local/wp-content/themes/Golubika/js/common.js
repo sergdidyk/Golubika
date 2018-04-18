@@ -18,8 +18,13 @@ $(function(){
 	 }
 	});
 
-    /* Hamburger menu animation and support functions*/
-    var toggler = document.querySelector(".navbar-toggler");
+	$(".nav-item").on("click", function(){
+		$(".navbar").addClass("main_nav_small");
+		$(".logo_nav path").css("fill", "#FEFCFF");
+	});
+
+		/* Hamburger menu animation and support functions*/
+   var toggler = document.querySelector(".navbar-toggler");
 	 var mainNav = document.querySelector(".main_nav");
 	 $(toggler).click(function(){
 	 	 $(mainNav).toggleClass("main_nav_mob");
@@ -85,18 +90,23 @@ $(function(){
 		/* Tooltip Bootstrap activation (for callback button)*/
     $('[data-toggle="tooltip"]').tooltip();    
 
-    /* main_nav onscroll animation*/
-    $(window).on("scroll", function(){
-    	if($(this).scrollTop()>100){
-    		$(".navbar").removeClass("main.nav").addClass("main_nav_small");
-    		$(".logo_nav path").css("fill", "#FEFCFF");
+    /* main_nav onscroll animation and appearance behaviour*/
+    function topDetect(){
+			if($(window).scrollTop() > 100){
+				$(".navbar").removeClass("main.nav").addClass("main_nav_small");
+				$(".logo_nav path").css("fill", "#FEFCFF");
     		$(".navbar-toggler span").css("background-color", "#FEFCFF");
-    	}else{
-    		$(".navbar").addClass("main.nav").removeClass("main_nav_small");
-    		$(".logo_nav path").css("fill", "#0C090A");
+			}else{
+				$(".navbar").addClass("main.nav").removeClass("main_nav_small");
+				$(".logo_nav path").css("fill", "#0C090A");
     		$(".navbar-toggler span").css("background-color", "#0C090A");
-    	}
+			}
+		}
+
+    $(window).on("scroll", function(){
+    	topDetect();
     });
+		topDetect();
 
     /* Close menu on click of link in mobile version. 
     * n+2 in order to except language dropdown from list
@@ -117,18 +127,18 @@ $(function(){
 
 
    /*Dropdown animation*/
-  $(".dropdown").mouseenter(function(){
-  	$(".dropdown-menu").addClass("zoomIn");
-  	if($(".dropdown-menu").hasClass("zoomOut")){
-  		$(".dropdown-menu").removeClass("zoomOut");
-  	}
-  });
-	$(".dropdown").mouseleave(function(){
-			$(".dropdown-menu").addClass("zoomOut");
-    	if($(".dropdown-menu").hasClass("zoomIn")){
-    		$(".dropdown-menu").removeClass("zoomIn");
-    	}
-  });
+	  $(".dropdown").mouseenter(function(){
+	  	$(".dropdown-menu").addClass("zoomIn");
+	  	if($(".dropdown-menu").hasClass("zoomOut")){
+	  		$(".dropdown-menu").removeClass("zoomOut");
+	  	}
+	  });
+		$(".dropdown").mouseleave(function(){
+				$(".dropdown-menu").addClass("zoomOut");
+	    	if($(".dropdown-menu").hasClass("zoomIn")){
+	    		$(".dropdown-menu").removeClass("zoomIn");
+	    	}
+	  });
   
 	/* --------- Scroll TO Id Plugin-------------*/
 	$(".main_nav a, .top_link, .footer_nav a, #back_to_top").mPageScroll2id();
@@ -187,14 +197,12 @@ $(function(){
 
 	/* STORIES SLIDER OWL carousel*/
 	$(".stories_slider").owlCarousel({
- 
       nav: true, // show next and prev buttons 
  			loop: true,
  			center: true,
  			smartSpeed: 500,
       items : 1,
       navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"]
- 
   });
 
 	/* Date at footer */
