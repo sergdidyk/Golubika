@@ -148,6 +148,14 @@ section, .main_head{
 }
 
 /* АНИМАЦИЯ МЕНЮ НА ХОВЕР */
+.nav-item a.mPS2id-highlight{
+  transition: 1s all ease;
+}
+
+.nav-item a.mPS2id-highlight:not(.dropdown-item){ 
+    color:  rgb(0, 44, 100) !important; 
+}
+
 .hvr-underline-from-center{
     display: inline-block;
     -webkit-transform: translateZ(0);
@@ -166,7 +174,7 @@ section, .main_head{
     left: 50%;
     right: 50%;
     bottom: 0;
-    background: #848482;
+    background: rgba(56, 90, 118, 0.6);
     height: 1px;
     -webkit-transition-property: left, right;
     transition-property: left, right;

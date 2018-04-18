@@ -18,7 +18,7 @@ $(function(){
 	 }
 	});
 
-	$(".nav-item").on("click", function(){
+	$(".nav-item:not(:last-of-type)").on("click", function(){
 		$(".navbar").addClass("main_nav_small");
 		$(".logo_nav path").css("fill", "#FEFCFF");
 	});
@@ -141,7 +141,9 @@ $(function(){
 	  });
   
 	/* --------- Scroll TO Id Plugin-------------*/
-	$(".main_nav a, .top_link, .footer_nav a, #back_to_top").mPageScroll2id();
+	$(".main_nav a, .top_link, .footer_nav a, #back_to_top").mPageScroll2id({
+		scrollSpeed: 900
+	});
 
 
 	/* Products animation, Magnific Popup gallery*/

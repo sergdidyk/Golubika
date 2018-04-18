@@ -139,7 +139,7 @@
 						</div>
 					<?php
 							}
-							wp_reset_postdata(); // сбрасываем переменную $post
+							wp_reset_postdata(); // reset $post
 						} 
 						else echo 'Записи отсутствуют';
 					?>

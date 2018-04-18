@@ -1,11 +1,11 @@
 	<!-- Callback form -->
-	<form method="post" 
+	<form method="#" 
 				class="callback_form modal fade" 
 				id="call_me" tabindex="-1" 
 				role="dialog" 
 				aria-labelledby="orderForm" 
 				aria-hidden="true"
-				action="mail/callback_mail.php">
+				action="#">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
