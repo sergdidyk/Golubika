@@ -5,6 +5,7 @@
 	<title><?php bloginfo( 'name' ); ?></title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+	  
 	  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/libs/bootstrap/bootstrap.min.css" />
 	  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/libs/font-awesome/css/font-awesome.min.css">
 	  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/libs/magnific-popup/magnific-popup.css" />
@@ -51,7 +52,7 @@
 		  	 		  	 aria-expanded="false" 
 		  	 		  	 href="#cat"><?php showCategoryName(129, 131, $lang) ?>
 		  	 		  </a>
-  	 		 				<div class="dropdown-menu animated" id="catalog_list" aria-labelledby="#catalog_dropdown">
+  	 		 				<div class="dropdown-menu animated" id="catalog_list">
   			          <a class="dropdown-item" href="#cat"><?php showCategoryName(73, 75, $lang); ?></a>
   			          <a class="dropdown-item" href="#bags"><?php showCategoryName(80, 82, $lang); ?></a>
   			          <a class="dropdown-item" href="#accs"><?php showCategoryName(85, 87, $lang); ?></a>
@@ -96,10 +97,10 @@
 			        		</span>
 			        	</div>
 		  			  </div>
-		  	 			<div class="dropdown-menu animated" id="language_list" aria-labelledby="#language_dropdown">
-		  			          <a class="dropdown-item" href="<?php $url = site_url(); echo $url; ?>">Українська</a>
-		  			          <a class="dropdown-item" href="<?php $url = site_url('en/'); echo $url; ?>">English</a>
-		  			        </div>
+		  	 			<div class="dropdown-menu animated" id="language_list">
+			          <a class="dropdown-item" href="<?php $url = site_url(); echo $url; ?>">Українська</a>
+			          <a class="dropdown-item" href="<?php $url = site_url('en/'); echo $url; ?>">English</a>
+			        </div>
 		  	 	</li>
 		  	 </ul> 
 		  </div>

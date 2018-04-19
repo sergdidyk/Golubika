@@ -62,7 +62,7 @@
 		<div class="container-fluid custom_order" id="cust">
 			<div class="row">
 				<div class="custom_image col-lg-4 col-md-4 col-sm-12 col-xs-12">
-					<img src="<?php showSinglePostImage(266, 268, $lang); ?>" alt="custom order image" class="img-fluid">
+					<img src="<?php showSinglePostImage(266, 268, $lang); ?>" class="img-fluid">
 				</div>
 				<div class="custom_descr col-lg-8 col-md-8 col-sm-12 col-xs-12">
 					<div class="container-fluid">

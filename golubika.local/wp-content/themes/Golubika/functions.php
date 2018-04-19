@@ -15,7 +15,7 @@
 	show_admin_bar(false);
 	remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
 	remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
-	
+
 	/**
 	* Carbon fields подключение
 	**/

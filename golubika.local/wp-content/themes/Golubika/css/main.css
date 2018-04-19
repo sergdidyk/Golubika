@@ -91,6 +91,7 @@ section, .main_head{
   white-space: nowrap;
   color: #FFFFFF;
   text-shadow: 2px 2px 4px #34282C;
+  outline: 0;
 }
 
 .dropdown-menu{

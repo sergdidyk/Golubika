@@ -1,8 +1,7 @@
 	<!-- Callback form -->
-	<form method="#" 
+	<form method="post" 
 				class="callback_form modal fade" 
 				id="call_me" tabindex="-1" 
-				role="dialog" 
 				aria-labelledby="orderForm" 
 				aria-hidden="true"
 				action="#">
@@ -24,7 +23,7 @@
 					<div class="form-group">
             <label class="control-label col-12" for="callback_phone">Ваш телефон:</label>
             <div class="col-12">
-              <input type="phone" class="form-control" id="callback_phone" name="callback_phone" placeholder="Введіть тут Ваш номер телефону" required />
+              <input type="tel" class="form-control" id="callback_phone" name="callback_phone" placeholder="Введіть тут Ваш номер телефону" required />
             </div>
           </div>
 				</div>
@@ -38,7 +37,11 @@
 	
 
 	<!-- Order form -->
-	<form action="#" method="#" class="order_form modal fade" tabindex="-1" role="dialog" aria-labelledby="orderForm" aria-hidden="true">
+	<form method="post" 
+				class="order_form modal fade" 
+				tabindex="-1" 
+				aria-labelledby="orderForm" 
+				aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -80,7 +83,7 @@
           </div>
           <div class="form-group">
             <div class="col-12">
-              <textarea type="text" class="form-control" id="order_comment" name="order_comment" rows="3" placeholder="Коментар до Вашого замовлення..."></textarea>
+              <textarea class="form-control" id="order_comment" name="order_comment" rows="3" placeholder="Коментар до Вашого замовлення..."></textarea>
             </div>
           </div>
 				</div>
@@ -95,7 +98,11 @@
 	
 
 	<!-- Individual order form -->
-	<form action="#" method="#" class="modal fade customorder_form" tabindex="-1" role="dialog" aria-labelledby="customOrderForm" aria-hidden="true">
+	<form method="post" 
+				class="modal fade customorder_form" 
+				tabindex="-1" 
+				aria-labelledby="customOrderForm" 
+				aria-hidden="true">
 		<div class="modal-dialog" role="document">
 	    <div class="modal-content">
 				<div class="modal-header">
@@ -126,7 +133,7 @@
           </div>
           <div class="form-group">
             <div class="col-12">
-              <textarea type="text" class="form-control" id="custom_comment" name="custom_comment" rows="4" placeholder="Будь-ласка, опишіть тут Вашу ідею..." required></textarea>
+              <textarea class="form-control" id="custom_comment" name="custom_comment" rows="4" placeholder="Будь-ласка, опишіть тут Вашу ідею..." required></textarea>
             </div>
           </div>
 				</div>

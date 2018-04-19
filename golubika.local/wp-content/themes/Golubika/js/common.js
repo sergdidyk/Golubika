@@ -54,14 +54,14 @@ $(function(){
   /* Social media buttons animation */
 	$(".slidebttn_fb").hover(
 		function(){
-			var $this 		= $(this);
+			var $this 		  = $(this);
 			var $slidelem 	= $this.prev();
 			$slidelem.stop().animate({"width":"100%"},300);
 			$slidelem.find("span").stop(true,true).fadeIn();
 			$this.addClass("button_c_fb");
 		},
 		function(){
-			var $this 		= $(this);
+			var $this 		  = $(this);
 			var $slidelem 	= $this.prev();
 			$slidelem.stop().animate({"width":"40px"},200);
 			$slidelem.find("span").stop(true,true).fadeOut();
@@ -71,14 +71,14 @@ $(function(){
 
 	$(".slidebttn_ig").hover(
 		function(){
-			var $this 		= $(this);
+			var $this 		  = $(this);
 			var $slidelem 	= $this.prev();
 			$slidelem.stop().animate({"width":"100%"},300);
 			$slidelem.find("span").stop(true,true).fadeIn();
 			$this.addClass("button_c_ig");
 		},
 		function(){
-			var $this 		= $(this);
+			var $this 		  = $(this);
 			var $slidelem 	= $this.prev();
 			$slidelem.stop().animate({"width":"40px"},200);
 			$slidelem.find("span").stop(true,true).fadeOut();
