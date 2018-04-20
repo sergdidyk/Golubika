@@ -5,7 +5,6 @@
 	<title><?php bloginfo( 'name' ); ?></title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
-	  
 	  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/libs/bootstrap/bootstrap.min.css" />
 	  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/libs/font-awesome/css/font-awesome.min.css">
 	  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/libs/magnific-popup/magnific-popup.css" />
@@ -18,7 +17,6 @@
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/sections.css" />
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/forms.css" />
 	  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/media.css" />
-
 	  <?php 
 	  	wp_head(); 
 	  	global $lang;

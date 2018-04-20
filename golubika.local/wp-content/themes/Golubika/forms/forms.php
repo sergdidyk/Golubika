@@ -1,10 +1,6 @@
 	<!-- Callback form -->
-	<form method="post" 
-				class="callback_form modal fade" 
-				id="call_me" tabindex="-1" 
-				aria-labelledby="orderForm" 
-				aria-hidden="true"
-				action="#">
+	<div id="form-messages"></div>
+	<form method="post" class="callback_form modal fade" id="call_me" tabindex="-1" aria-labelledby="orderForm" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -29,7 +25,7 @@
 				</div>
 	      <div class="modal-footer">
 	        <button type="button" class="close_form btn btn-secondary" data-dismiss="modal">Закрити</button>
-	        <button type="submit" value="Submit" class="send_form btn" id="callback_btn">Зателефонуйте мені</button>
+	        <button class="send_form btn" id="callback_btn">Зателефонуйте мені</button>
 		    </div>
 			</div>
 		</div>

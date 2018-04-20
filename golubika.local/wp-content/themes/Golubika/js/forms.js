@@ -106,8 +106,20 @@ $(function(){
 
 	/*-------------FORMS SENDING------------------*/
 	//Callback form
-	
-
+		$(".callback_form").submit(function(){
+    	var formData = $(form).serialize();
+    	$.ajax({
+			    type: "POST",
+			    url: "mail/callback_mail.php",
+			    data: formData
+			}).done(function(){
+					console.log("Form is sent");
+					setTimeout(function(){
+						$(this).trigger("reset");
+					}, 1000);
+			});
+			return false;
+		});	
 	//Order form
 
 

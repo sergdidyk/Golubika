@@ -76,7 +76,6 @@
 		wp_enqueue_script('owlcarousel', get_template_directory_uri() . '/libs/owl/owl.carousel.min.js', array('jquery'), false, true);
 		wp_enqueue_script('jqvalidate', get_template_directory_uri() . '/libs/jquery_validate/jquery.validate.min.js', array('jquery'), false, true);
 		wp_enqueue_script('myscript', get_template_directory_uri() . '/js/common.js', array('jquery'), false, true);
-
 		if($lang == "uk"){
 			wp_enqueue_script("myforms", get_template_directory_uri() . "/js/forms.js", array('jquery'), false, true);
 			wp_deregister_script("myforms_en");
