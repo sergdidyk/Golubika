@@ -18,10 +18,18 @@ $(function(){
 	 }
 	});
 
-	$(".nav-item:not(:last-of-type)").on("click", function(){
-		$(".navbar").addClass("main_nav_small");
-		$(".logo_nav path").css("fill", "#FEFCFF");
-	});
+	// Init Skrollr
+  var s = skrollr.init({
+      render: function(data) {
+          //Debugging - Log the current scroll position.
+          //console.log(data.curTop);
+      }
+  });	
+  var _skrollr = skrollr.get(); // get() returns the skrollr instance or undefined
+  var windowWidth = $(window).width();
+	if ( windowWidth <= 992 && _skrollr !== undefined ) {
+	  _skrollr.destroy();
+	}
 
 		/* Hamburger menu animation and support functions*/
    var toggler = document.querySelector(".navbar-toggler");
@@ -85,28 +93,25 @@ $(function(){
 			$this.removeClass("button_c_ig");
 		}
 	);
-
-					
+				
 		/* Tooltip Bootstrap activation (for callback button)*/
     $('[data-toggle="tooltip"]').tooltip();    
 
-    /* main_nav onscroll animation and appearance behaviour*/
-    function topDetect(){
-			if($(window).scrollTop() > 100){
-				$(".navbar").removeClass("main.nav").addClass("main_nav_small");
-				$(".logo_nav path").css("fill", "#FEFCFF");
-    		$(".navbar-toggler span").css("background-color", "#FEFCFF");
-			}else{
-				$(".navbar").addClass("main.nav").removeClass("main_nav_small");
-				$(".logo_nav path").css("fill", "#0C090A");
-    		$(".navbar-toggler span").css("background-color", "#0C090A");
-			}
-		}
-
-    $(window).on("scroll", function(){
-    	topDetect();
-    });
-		topDetect();
+		/* Navbar Animation */
+		var headerBottom = $(".main_head").offset().top + $(".main_head").height();
+		// возвращает высоту header
+		$(window).on("scroll",function(){
+			var stop = Math.round($(window).scrollTop());
+			    if (stop > headerBottom){
+			    	$(".navbar").addClass("main_nav_small");
+			    	$(".logo_nav path").css("fill", "#FEFCFF");
+			    	$(".navbar-toggler span").css("background-color", "#FEFCFF");
+			    }else{
+			    	$(".navbar").removeClass("main_nav_small");
+			    	$(".logo_nav path").css("fill", "#0C090A");
+    				$(".navbar-toggler span").css("background-color", "#0C090A");
+			    }
+		});
 
     /* Close menu on click of link in mobile version. 
     * n+2 in order to except language dropdown from list
@@ -142,7 +147,10 @@ $(function(){
   
 	/* --------- Scroll TO Id Plugin-------------*/
 	$(".main_nav a, .top_link, .footer_nav a, #back_to_top").mPageScroll2id({
-		scrollSpeed: 900
+		scrollSpeed: 1500,
+		scrollEasing: "easeInOutQuint",
+		layout: "vertical",
+		appendHash: false
 	});
 
 
@@ -172,8 +180,7 @@ $(function(){
 	/*Scroll-to-top button animation*/
 	$(window).scroll(function(){
 		var height = $(window).scrollTop();
-		var to_bottom = Math.floor($("html").height() - height);
-		
+		var to_bottom = Math.floor($(document).height() - height);
 		if(to_bottom<=700){
 			$('#back_to_top').fadeOut(500);
 		}else if(height>1200){
