@@ -95,9 +95,10 @@
 		<div class="about" id="abus">
 
 				<div class="about_image">
-					<div class="about_bcg"  
+					<div class="about_bcg"
 						data-center="background-position: 50% 0px;"
         		data-top-bottom="background-position: 50% -100px;"
+        		data-bottom-top="background-position: 50% 100px;"
         		data-anchor-target=".about_image"> 	
 					</div>
 	      </div>

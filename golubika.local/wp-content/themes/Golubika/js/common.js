@@ -21,16 +21,23 @@ $(function(){
 	// Init Skrollr
   var s = skrollr.init({
       render: function(data) {
-          //Debugging - Log the current scroll position.
+      		//Debugging - Log the current scroll position.
           //console.log(data.curTop);
       }
   });	
   var _skrollr = skrollr.get(); // get() returns the skrollr instance or undefined
   var windowWidth = $(window).width();
+  var windowHeight = $(window).height();
+  var topBackground = document.getElementsByClassName("bcg")[0];
 	if ( windowWidth <= 992 && _skrollr !== undefined ) {
 	  _skrollr.destroy();
 	}
+	if(windowHeight >= 700){ // footer glued to bottom on tall screens
+		$("footer").css("position", "absolute");
+	}
 
+	
+	
 		/* Hamburger menu animation and support functions*/
    var toggler = document.querySelector(".navbar-toggler");
 	 var mainNav = document.querySelector(".main_nav");

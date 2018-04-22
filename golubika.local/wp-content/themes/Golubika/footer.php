@@ -27,7 +27,7 @@
 							<li>
 								<i class="fa fa-envelope" aria-hidden="true"></i>
 								<span>
-									<?php echo carbon_get_theme_option( 'crb_email' ); ?>
+									<?php echo antispambot(carbon_get_theme_option( 'crb_email' )); ?>
 								</span>
 							</li>
 						</ul>
