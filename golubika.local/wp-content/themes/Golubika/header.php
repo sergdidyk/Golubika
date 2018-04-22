@@ -29,7 +29,7 @@
 	<a href="#body" id="back_to_top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
 	<header class="main_head" id="top">
 		<div class="bcg" 
-				data-center="background-position: 50% -20px;"
+				data-center="background-position: 50% 0px;"
         data-top-bottom="background-position: 50% -100px;"
         data-anchor-target="#top">
 			
