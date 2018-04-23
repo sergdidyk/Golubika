@@ -8,11 +8,18 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
   scroll-behavior: smooth;
-  position: relative;
   line-height: 1.42857;
   -webkit-font-smoothing: antialised;
   opacity: 1; /* fade появление всего контента */
   transition: 0.8s opacity ease-in;
+  -webkit-overflow-scrolling: touch;
+}
+
+body:after{
+  content:"";
+  position: fixed;
+  height: 100vh;
+  z-index: -1;
 }
 
 .hidden{
@@ -38,6 +45,9 @@ section, .main_head{
   background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
 }
 
@@ -49,6 +59,9 @@ section, .main_head{
   background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
 }
 
