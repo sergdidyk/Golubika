@@ -1,0 +1,182 @@
+
+/* Headers styles */
+.cat_headline, .order_headline, .about_headline, .stories_headline{
+  height: 160px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.order_headline, .about_headline, .stories_headline{
+  position: relative;
+}
+
+.about_headline{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.cat_headline_inside{
+  height: 100%;
+}
+
+.cat_headtext{
+  left: 50px;
+  bottom: 30px;
+}
+
+.cat_headtext, .order_headtext, .about_headtext, .stories_headtext{
+  position: absolute;
+  text-transform: uppercase;
+  font-size: 3.30rem;
+  font-weight: normal;
+  color: #385A76;
+  line-height: 0.70;
+  letter-spacing: -3.00px;
+  white-space: nowrap;
+}
+
+.order_headtext, .about_headtext, .stories_headtext{
+  width: 100%;
+  text-align: center;
+  bottom: 30px;
+}
+/* _____________________________________ */
+
+/* Goods styles */
+.good_item{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.image_container{
+  position: relative;
+  -webkit-transition: all 0.6s ease;
+  -moz-transition: all 0.6s ease;
+  -ms-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+}
+
+.main_photo:hover{
+  cursor: zoom-in;
+}
+
+.image_container:hover .buy_desktop{
+  height: 10%;
+  background-color: rgba(56, 90, 118, 0.76);
+}
+
+.main_photo{
+  -webkit-transition: all 0.6s ease;
+  -moz-transition: all 0.6s ease;
+  -ms-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+  backface-visibility: hidden; 
+}
+
+.buy_desktop{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(56, 90, 118, 0);
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.buy_desktop:hover{
+  cursor: pointer;
+}
+
+.buy_text{
+  position: absolute;
+  color: rgba(255, 255, 255, 0.80);
+  font-size: 15px;
+  font-weight: 300;
+  text-transform: uppercase;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.description_container{
+  margin-top: 10px;
+  text-align: center;
+  color: #6D6968;
+}
+
+.prod_name{
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+
+.prod_status{
+  margin-top: 7px;
+  margin-bottom: 7px;
+  font-size: 13px;
+}
+
+.prod_currentprice, .prod_newprice{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.little_things{
+  padding: 10px 15px 10px 15px;
+  width: 20%;
+  float: left;
+}
+
+.prod_oldprice{
+  text-align: right;
+  text-decoration: line-through;
+  font-weight: 300;
+}
+
+.prod_newprice{
+  text-align: left;
+}
+/* __________________________________________ */
+
+
+/* 
+=====Smooth gallery appearing in modal=====
+ */
+/* overlay at start */
+.mfp-fade.mfp-bg {
+  opacity: 0;
+
+  -webkit-transition: all 0.30s ease-out;
+  -moz-transition: all 0.30s ease-out;
+  transition: all 0.30s ease-out;
+}
+/* overlay animate in */
+.mfp-fade.mfp-bg.mfp-ready {
+  opacity: 0.8;
+}
+/* overlay animate out */
+.mfp-fade.mfp-bg.mfp-removing40{
+  opacity: 0;
+}
+
+/* content at start */
+.mfp-fade.mfp-wrap .mfp-content {
+  opacity: 0;
+  -webkit-transition: all 0.30s ease-out;
+  -moz-transition: all 0.30s ease-out;
+  transition: all 0.30s ease-out;
+}
+/* content animate it */
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+  opacity: 1;
+}
+/* content animate out */
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+  opacity: 0;
+}
+/* ================================= */
