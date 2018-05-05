@@ -230,9 +230,7 @@
 										?>
 									</div>
 									<div class="prod_currentprice">
-										<span>
-											<span><?php $numPrice = carbon_get_the_post_meta('crb_good_price'); showProductPrice($numPrice, $lang);?></span>
-										</span>
+										<span><?php $numPrice = carbon_get_the_post_meta('crb_good_price'); showProductPrice($numPrice, $lang);?></span>
 									</div>	
 								</div>
 						</div>
