@@ -95,7 +95,7 @@
 						          	</span>
 						          	<i class="fa fa-sort-desc" aria-hidden="true"></i>
 						          	<span id="lang_selector">
-						          		<?php if($lang == "uk"){echo "оберіть мову";}else{echo "select language";} ?>
+						          		<?php echo "select language / оберіть мову"; ?>
 						        		</span>
 						        	</div>
 					  			  </div>
@@ -121,7 +121,12 @@
 									?>
 								</span>
 							</a>
-							<a href="https://www.facebook.com/golubika.forbeloved/" class="button_bRight slidebttn_fb" id="button_bRight_fb"><i class="fa fa-facebook icons_opacity" aria-hidden="true"></i></a>
+							<a href="https://www.facebook.com/golubika.forbeloved/" 
+							   target="_blank" 
+							   class="button_bRight slidebttn_fb" 
+							   id="button_bRight_fb">
+							    <i class="fa fa-facebook icons_opacity" aria-hidden="true"></i>
+							</a>
 						</div>
 					</div>
 
@@ -138,7 +143,12 @@
 									?>
 								</span>
 							</a>
-							<a href="https://www.instagram.com/golubika.forbeloved/" class="button_bRight slidebttn_ig" id="button_bRight_ig"><i class="fa fa-instagram icons_opacity" aria-hidden="true"></i></a>
+							<a href="https://www.instagram.com/golubika.forbeloved/" 
+							   target="_blank" 
+							   class="button_bRight slidebttn_ig" 
+							   id="button_bRight_ig">
+							    <i class="fa fa-instagram icons_opacity" aria-hidden="true"></i>
+							</a>
 						</div>
 					</div>		
 

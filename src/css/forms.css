@@ -35,6 +35,11 @@
   resize: none;
 }
 
+label.error{
+  font-size: 12px;
+  color: #B22222;
+}
+
 /* FIX of the problem with body shifting left when modal opened */ 
 .modal-open .modal {
   overflow: hidden !important;

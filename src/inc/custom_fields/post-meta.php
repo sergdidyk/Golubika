@@ -167,12 +167,12 @@
                         'not_available' => 'Немає в наявності',
                         'pre_order' => 'Доступний за передзамовленням',
                     ) ),           
-            Field::make( 'text', 'crb_good_price', 'Укажите распродажную цену товара в гривнах' )
-                   ->set_help_text( 'Просто цифра, <i>грн</i> писать не надо' )
+            Field::make( 'text', 'crb_good_price', 'Укажите старую цену товара в гривнах' )
+                   ->set_help_text( 'Просто цифра, <i>грн</i> писать не надо. <br> Будет выводиться зачеркнутой' )
                    ->set_required( true )
                    ->set_width( 30 ),           
-            Field::make( 'text', 'crb_good_old_price', 'Укажите старую цену товара в гривнах' )
-                   ->set_help_text( 'Просто цифра, <i>грн</i> писать не надо. <br> Будет выводиться зачеркнутой' )
+            Field::make( 'text', 'crb_good_old_price', 'Укажите распродажную цену товара в гривнах' )
+                   ->set_help_text( 'Просто цифра, <i>грн</i> писать не надо' )
                    ->set_required( true )
                    ->set_width( 30 ),       
                 ) )
@@ -218,12 +218,12 @@
                         'not_available' => 'Not available',
                         'pre_order' => 'Available by preorder',
                     ) ),            
-            Field::make( 'text', 'crb_good_price', 'Specify the price for sale, EUR' )
-                   ->set_help_text( 'Just number, don\'t write <i>EUR</i>' )
+            Field::make( 'text', 'crb_good_price', 'Specify old price' )
+                   ->set_help_text( 'Just number, don\'t write <i>EUR</i>. <br> It will be shown strikethrough.' )
                    ->set_required( true )
                    ->set_width( 30 ),                  
-            Field::make( 'text', 'crb_good_old_price', 'Specify old price' )
-                   ->set_help_text( 'Just number, don\'t write <i>EUR</i>. <br> It will be shown strikethrough.' )
+            Field::make( 'text', 'crb_good_old_price', 'Specify the price for sale, EUR' )
+                   ->set_help_text( 'Just number, don\'t write <i>EUR</i>.' )
                    ->set_required( true )
                    ->set_width( 30 ),       
                 ) )

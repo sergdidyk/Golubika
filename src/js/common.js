@@ -36,6 +36,7 @@ $(function(){
   	$(".about_bcg").css("background-attachment", "scroll");
   	$(".bcg").css("background-attachment", "scroll");
 	  _skrollr.destroy();
+	  $(".callback").removeAttr("data-toggle data-placement title data-original-title");
 	}
 
 	
@@ -60,10 +61,10 @@ $(function(){
 	 	 	}
 	 });
 	/* Prevent background color change when nav is on top*/
-	 $(".nav-item, .dropdown-item").click(function(){
+	 $(".nav-item:not(:last-child), .dropdown-item").click(function(){
 		$(mainNav).removeClass("main_nav_mob");
 	});
-	/* Prevent scroll when modal is opened*/
+	/* Prevent body scroll when modal is opened*/
 	$(window).on("scroll", function(){
 	 if($(toggler).hasClass("collapsed")){
 	 		$("body").removeClass("overflowHidden");
