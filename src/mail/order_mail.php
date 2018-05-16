@@ -17,16 +17,18 @@
           exit;
       }
 
-      $message = "Название: $product\n";
-      $message .= "Описание: $description\n";
-      $message .= "Цена: $price\n\n";
-      $message .= "Имя покупателя: $name\n";
-      $message .= "Номер телефона покупателя: $phone\n";
-      $message .= "Email покупателя: $email\n\n";
-      $message .= "Комментарий покупателя: $comment\n\n";
+      $message = "<strong>Название товара:</strong> $product <br>";
+      $message .= "<strong>Описание товара:</strong> $description <br>";
+      $message .= "<strong>Цена на сайте:</strong> $price<br>";
+      $message .= "<strong>Имя покупателя:</strong> $name<br>";
+      $message .= "<strong>Номер телефона покупателя:</strong> $phone<br>";
+      $message .= "<strong>Email покупателя:</strong> $email<br>";
+      $message .= "<hr><strong>Комментарий покупателя:</strong> $comment<br>";
 
-      $headers = "Golubika Website";
-     
+      $headers = "MIME-Version: 1.0" . "\r\n";
+      $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+      $headers .= 'From: <info@golubika-bags.com>' . "\r\n";
+           
       if (mail($recipient, $subject, $message, $headers)){
           header("HTTP/1.1 200 OK");
       } else {

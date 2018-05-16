@@ -1,6 +1,6 @@
 <?php 
  if ($_SERVER["REQUEST_METHOD"] == "POST") {
- 		$name = strip_tags(trim($_POST["custom_name"]));
+ 	$name = strip_tags(trim($_POST["custom_name"]));
     $name = str_replace(array("\r","\n"),array(" "," "), $name);
     $phone = filter_var(trim($_POST["custom_phone"]), FILTER_SANITIZE_NUMBER_INT);
     $email = filter_var(trim($_POST["custom_email"]), FILTER_SANITIZE_EMAIL);
@@ -14,12 +14,14 @@
         exit;
     }
 
-    $message  = "Имя: $name\n";
-    $message .= "Номер телефона: $phone\n";
-    $message .= "Email: $email\n\n";
-    $message .= "Комментарий к индивидуальному заказу: $comment\n\n";
+    $message = "<strong>Имя: </strong> $name <br>";
+    $message .= "<strong>Номер телефона: </strong> $phone <br>";
+    $message .= "<strong>Email: </strong> $email <br><hr>";
+    $message .= "<strong>Комментарий к индивидуальному заказу:</strong><br> $comment <br>";
 
-    $headers = "Golubika Website";
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= 'From: <info@golubika-bags.com>' . "\r\n";
    
     if (mail($recipient, $subject, $message, $headers)){
         header("HTTP/1.1 200 OK");

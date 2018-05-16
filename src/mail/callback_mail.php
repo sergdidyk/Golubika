@@ -4,17 +4,20 @@
         $name = str_replace(array("\r","\n"),array(" "," "), $name);
         $phone = filter_var(trim($_POST["callback_phone"]), FILTER_SANITIZE_NUMBER_INT);
         $recipient = "info@golubika-bags.com";
-        $subject = "Поступил запрос обратного звонка на Golubika Website";
+        $subject = "Запрос обратного звонка на Golubika Website";
         
         if ( empty($name) OR empty($phone)){
             header("HTTP/1.1 400 Bad Request");
             exit;
         }
 
-        $message = "Имя: $name\n";
-        $message .= "Номер телефона: $phone\n\n";
-        $headers = "Golubika Website";
-       
+        $message = "<strong>Имя:</strong> $name <br>";
+        $message .= "<strong>Номер телефона:</strong> $phone <br>";
+
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= 'From: <info@golubika-bags.com>' . "\r\n";
+               
         if (mail($recipient, $subject, $message, $headers)){
             header("HTTP/1.1 200 OK");
         } else {
